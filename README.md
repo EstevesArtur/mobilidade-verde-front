@@ -28,13 +28,17 @@ Energia Verde; a operadora recebe o valor cheio. O impacto de CO₂ evitado é m
 e auditável por viagem.
 
 Caminho desenhado pelo front:
+
+```
 carteira.html  →  resgatar.html  →  cupom.html
-(ver saldo)       (operadora+faixa)  (código + QR + impacto)]
+(ver saldo)       (operadora+faixa)  (código + QR + impacto)
+```
 
 ---
 
 ## 🗂️ Estrutura de pastas
 
+```
 mobilidade-verde-front/
 ├── index.html            # Hero + 3 passos + credibilidade
 ├── sobre.html            # Contexto SoulUp/Prospera + tese + valor
@@ -59,6 +63,7 @@ mobilidade-verde-front/
 │   ├── top.svg           # Logo mockado TOP
 │   └── sptrans.svg       # Logo mockado SPTrans
 └── README.md
+```
 
 ---
 

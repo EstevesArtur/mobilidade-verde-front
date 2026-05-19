@@ -1,6 +1,6 @@
 /* ============================================================
    MAIN · Mobilidade Verde
-   Nav mobile · FAQ acordeão acessível · validação · reveal
+   Nav mobile · FAQ acordeão · validação de contato · reveal
    ============================================================ */
 
 // ---------- Menu mobile ----------
@@ -14,22 +14,20 @@
   });
 })();
 
-// ---------- Acordeão FAQ (aria-expanded + aria-controls) ----------
+// ---------- Acordeão FAQ ----------
 (function faqAccordion() {
-  const qs = document.querySelectorAll(".accordion-q");
-  qs.forEach((q) => {
-    const panel = document.getElementById(q.getAttribute("aria-controls"));
-    if (panel) panel.style.maxHeight = null;
+  const items = document.querySelectorAll(".accordion-q");
+  items.forEach((q) => {
     q.addEventListener("click", () => {
+      const ans = q.nextElementSibling;
       const open = q.getAttribute("aria-expanded") === "true";
       document.querySelectorAll(".accordion-q").forEach((other) => {
         other.setAttribute("aria-expanded", "false");
-        const op = document.getElementById(other.getAttribute("aria-controls"));
-        if (op) op.style.maxHeight = null;
+        other.nextElementSibling.style.maxHeight = null;
       });
       if (!open) {
         q.setAttribute("aria-expanded", "true");
-        panel.style.maxHeight = panel.scrollHeight + "px";
+        ans.style.maxHeight = ans.scrollHeight + "px";
       }
     });
   });
@@ -42,9 +40,7 @@
 
   const setError = (name, on) => {
     const field = form.querySelector(`[data-field="${name}"]`);
-    const input = form.elements[name];
     if (field) field.classList.toggle("invalid", on);
-    if (input) input.setAttribute("aria-invalid", on ? "true" : "false");
   };
 
   form.addEventListener("submit", (e) => {

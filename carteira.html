@@ -14,12 +14,11 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">&#9776;</button>
-      <nav class="nav-links" id="menu-principal" aria-label="Navegação principal">
+      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html" aria-current="page">Carteira</a>
@@ -29,21 +28,21 @@
       </nav>
     </div>
   </header>
-  <main id="conteudo">
-    <section class="section" aria-labelledby="carteira-title">
+  <main>
+    <section class="section">
       <div class="container">
-        <h1 id="carteira-title" class="visually-hidden">Sua carteira de Pontos ECOA</h1>
-        <section class="wallet-hero reveal" aria-label="Saldo de Pontos ECOA">
-          <p class="label">Olá, <span id="wallet-name">você</span> · saldo Pontos ECOA</p>
-          <p class="balance"><span id="wallet-balance">0</span> <span>pts</span></p>
-          <p class="sub">Lastreado em créditos de carbono e energia limpa · SoulUp</p>
-          <p><a href="resgatar.html" class="btn btn--transito btn--lg">Trocar por cupom de transporte →</a></p>
-        </section>
-        <section class="card mt-6" aria-labelledby="hist-title">
-          <h2 id="hist-title" style="font-size:var(--fs-xl);margin-bottom:var(--sp-2)">Histórico recente</h2>
+        <div class="wallet-hero reveal">
+          <div class="label">Olá, <span id="wallet-name">você</span> · saldo Pontos ECOA</div>
+          <div class="balance"><span id="wallet-balance">0</span> <span>pts</span></div>
+          <div class="sub">Lastreado em créditos de carbono e energia limpa · SoulUp</div>
+          <a href="resgatar.html" class="btn btn--transito btn--lg">Trocar por cupom de transporte →</a>
+        </div>
+
+        <div class="card mt-6">
+          <h2 style="font-size:var(--fs-xl);margin-bottom:var(--sp-2)">Histórico recente</h2>
           <p style="color:var(--grafite-500);font-size:var(--fs-sm);margin-bottom:var(--sp-4)">Movimentações de Pontos ECOA (T_TRANSACAO_PONTOS)</p>
-          <ul id="tx-list" role="list"></ul>
-        </section>
+          <ul id="tx-list"></ul>
+        </div>
       </div>
     </section>
   </main>
@@ -51,32 +50,31 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <p class="brand" style="color:#fff"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</p>
+          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
           <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <nav aria-label="Rodapé — navegação">
-          <h2 class="visually-hidden">Navegação do rodapé</h2>
-          <h3>Navegação</h3>
-          <ul role="list">
+        <div>
+          <h4>Navegação</h4>
+          <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </nav>
-        <nav aria-label="Rodapé — projeto">
-          <h3>Projeto</h3>
-          <ul role="list">
+        </div>
+        <div>
+          <h4>Projeto</h4>
+          <ul>
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
-      <p class="footer-bottom">
+      <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
         <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
-      </p>
+      </div>
     </div>
   </footer>
   <script src="js/mock-data.js"></script>

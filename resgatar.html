@@ -14,12 +14,11 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">&#9776;</button>
-      <nav class="nav-links" id="menu-principal" aria-label="Navegação principal">
+      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html" aria-current="page">Carteira</a>
@@ -29,22 +28,23 @@
       </nav>
     </div>
   </header>
-  <main id="conteudo">
-    <section class="section" aria-labelledby="resg-title">
+  <main>
+    <section class="section">
       <div class="container" style="max-width:880px">
         <p class="eyebrow">Passo 3 a 5 do resgate</p>
-        <h1 id="resg-title" class="section-title">Trocar pontos por cupom</h1>
-        <p class="lead">Saldo disponível: <strong><span id="saldo-atual">0</span> Pontos ECOA</strong>. Escolha a operadora e a faixa de valor.</p>
-        <section aria-labelledby="op-title">
-          <h2 id="op-title" style="font-size:var(--fs-lg);margin:var(--sp-6) 0 var(--sp-4)">1. Escolha a operadora</h2>
-          <ul id="op-list" class="grid grid-2 op-list" role="list"></ul>
-        </section>
-        <section id="faixa-section" aria-labelledby="faixa-title" hidden>
-          <h2 id="faixa-title" style="font-size:var(--fs-lg);margin:var(--sp-7) 0 var(--sp-4)">2. Escolha a faixa de valor</h2>
-          <ul id="faixa-list" class="grid grid-4 faixa-list" role="list"></ul>
-          <div id="confirm-box" class="card mt-6" hidden style="background:var(--soul-100);border:none" role="region" aria-label="Confirmação do resgate">
+        <h1 class="section-title">Trocar pontos por cupom</h1>
+        <p class="lead">Saldo disponível: <b><span id="saldo-atual">0</span> Pontos ECOA</b>. Escolha a operadora e a faixa de valor.</p>
+
+        <h2 style="font-size:var(--fs-lg);margin:var(--sp-6) 0 var(--sp-4)">1. Escolha a operadora</h2>
+        <div id="op-list" class="grid grid-2"></div>
+
+        <section id="faixa-section" hidden>
+          <h2 style="font-size:var(--fs-lg);margin:var(--sp-7) 0 var(--sp-4)">2. Escolha a faixa de valor</h2>
+          <div id="faixa-list" class="grid grid-4"></div>
+
+          <div id="confirm-box" class="card mt-6" hidden style="background:var(--soul-100);border:none">
             <p id="confirm-text" style="font-size:var(--fs-md)"></p>
-            <button id="gerar-btn" type="button" class="btn btn--primary btn--lg mt-5" disabled>Gerar cupom</button>
+            <button id="gerar-btn" class="btn btn--primary btn--lg mt-5" disabled>Gerar cupom</button>
           </div>
         </section>
       </div>
@@ -54,32 +54,31 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <p class="brand" style="color:#fff"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</p>
+          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
           <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <nav aria-label="Rodapé — navegação">
-          <h2 class="visually-hidden">Navegação do rodapé</h2>
-          <h3>Navegação</h3>
-          <ul role="list">
+        <div>
+          <h4>Navegação</h4>
+          <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </nav>
-        <nav aria-label="Rodapé — projeto">
-          <h3>Projeto</h3>
-          <ul role="list">
+        </div>
+        <div>
+          <h4>Projeto</h4>
+          <ul>
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
-      <p class="footer-bottom">
+      <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
         <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
-      </p>
+      </div>
     </div>
   </footer>
   <script src="js/mock-data.js"></script>

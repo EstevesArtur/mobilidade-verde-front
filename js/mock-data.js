@@ -8,7 +8,7 @@
 const USUARIOS = [
   { id_usuario: 1, nome: "Marina Soares",  cidade: "São Paulo",      saldo_pontos: 5000 },
   { id_usuario: 2, nome: "Rafael Lima",    cidade: "Rio de Janeiro", saldo_pontos: 1500 },
-  { id_usuario: 3, nome: "Bruna Teixeira", cidade: "São Paulo",      saldo_pontos: 180  }, // saldo insuficiente p/ R$20
+  { id_usuario: 3, nome: "Bruna Teixeira", cidade: "São Paulo",      saldo_pontos: 180  }, // saldo insuficiente até p/ R$2 (180 < 200)
 ];
 
 // T_OPERADORA_TRANSPORTE

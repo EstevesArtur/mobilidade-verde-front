@@ -14,12 +14,11 @@
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">&#9776;</button>
-      <nav class="nav-links" id="menu-principal" aria-label="Navegação principal">
+      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html">Carteira</a>
@@ -29,79 +28,47 @@
       </nav>
     </div>
   </header>
-  <main id="conteudo">
-    <header class="page-head">
+  <main>
+    <section class="page-head">
       <div class="container">
         <h1>Perguntas frequentes</h1>
         <p>Tudo sobre o caminho de resgate: pontos, operadoras, cupom e segurança.</p>
       </div>
-    </header>
-    <section class="section" aria-label="Lista de perguntas frequentes">
+    </section>
+    <section class="section">
       <div class="container" style="max-width:780px">
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">O que é a Mobilidade Verde?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
-              <p>É a feature da SoulUp que permite trocar seus Pontos ECOA por cupom real de transporte público, aceito pela TOP e pela SPTrans.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">Como eu troco meus pontos por cupom?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
-              <p>Acesse a Carteira, toque em \"Trocar por cupom de transporte\", escolha a operadora e a faixa de valor. O cupom é gerado na hora.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">Em quais operadoras posso usar?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
-              <p>No MVP, TOP (destaque) e SPTrans. A modelagem já está pronta para novas operadoras nas próximas sprints.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">Quanto vale 1 Ponto ECOA?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
-              <p>A conversão é por faixa fixa: R$2 ≈ 200 pts, R$5 ≈ 500 pts, R$10 ≈ 1.000 pts, R$20 ≈ 2.000 pts.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">Como uso o cupom no app da TOP ou SPTrans?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
-              <p>Abra o app da operadora, vá em Recarga/Cupom, digite o código gerado e use seu cartão normalmente.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">Quanto tempo o cupom dura?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
-              <p>O cupom expira em 24 horas após a geração. A validade aparece em contagem regressiva na tela do cupom.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">E se eu não usar o cupom?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a7" role="region" aria-labelledby="faq-q7">
-              <p>Cupom expirado muda de status e não debita novamente — o controle de status protege o usuário e o sistema.</p>
-            </div>
-          </article>
-          <article class="accordion-item">
-            <h3 style="margin:0">
-              <button class="accordion-q" type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">E a fraude?<span class="ico" aria-hidden="true">＋</span></button>
-            </h3>
-            <div class="accordion-a" id="faq-a8" role="region" aria-labelledby="faq-q8">
-              <p>Cada cupom tem código único e hash de validação, vínculo a um único usuário, status controlado e log imutável de transações.</p>
-            </div>
-          </article>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">O que é a Mobilidade Verde?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>É a feature da SoulUp que permite trocar seus Pontos ECOA por cupom real de transporte público, aceito pela TOP e pela SPTrans.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">Como eu troco meus pontos por cupom?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>Acesse a Carteira, toque em \"Trocar por cupom de transporte\", escolha a operadora e a faixa de valor. O cupom é gerado na hora.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">Em quais operadoras posso usar?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>No MVP, TOP (destaque) e SPTrans. A modelagem já está pronta para novas operadoras nas próximas sprints.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">Quanto vale 1 Ponto ECOA?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>A conversão é por faixa fixa: R$2 = 200 pts, R$5 = 500 pts, R$10 = 1.000 pts, R$20 = 2.000 pts.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">Como uso o cupom no app da TOP ou SPTrans?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>Abra o app da operadora, vá em Recarga/Cupom, digite o código gerado e use seu cartão normalmente.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">Quanto tempo o cupom dura?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>O cupom expira em 24 horas após a geração. A validade aparece em contagem regressiva na tela do cupom.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">E se eu não usar o cupom?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>Cupom expirado muda de status e não debita novamente — o controle de status protege o usuário e o sistema.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-q" aria-expanded="false">E a fraude?<span class="ico">＋</span></button>
+            <div class="accordion-a"><p>Cada cupom tem código único e hash de validação, vínculo a um único usuário, status controlado e log imutável de transações.</p></div>
+          </div>
       </div>
     </section>
   </main>
@@ -109,32 +76,31 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <p class="brand" style="color:#fff"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</p>
+          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
           <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <nav aria-label="Rodapé — navegação">
-          <h2 class="visually-hidden">Navegação do rodapé</h2>
-          <h3>Navegação</h3>
-          <ul role="list">
+        <div>
+          <h4>Navegação</h4>
+          <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </nav>
-        <nav aria-label="Rodapé — projeto">
-          <h3>Projeto</h3>
-          <ul role="list">
+        </div>
+        <div>
+          <h4>Projeto</h4>
+          <ul>
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </nav>
+        </div>
       </div>
-      <p class="footer-bottom">
+      <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
         <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
-      </p>
+      </div>
     </div>
   </footer>
   <script src="js/mock-data.js"></script>
