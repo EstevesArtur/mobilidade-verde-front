@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resgatar · Mobilidade Verde</title>
+  <meta name="description" content="Escolha a operadora e a faixa de valor para gerar seu cupom de transporte.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">&#9776;</button>
+      <nav class="nav-links" id="menu-principal" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="carteira.html" aria-current="page">Carteira</a>
+        <a href="faq.html">FAQ</a>
+        <a href="integrantes.html">Integrantes</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="section" aria-labelledby="resg-title">
+      <div class="container" style="max-width:880px">
+        <p class="eyebrow">Passo 3 a 5 do resgate</p>
+        <h1 id="resg-title" class="section-title">Trocar pontos por cupom</h1>
+        <p class="lead">Saldo disponível: <strong><span id="saldo-atual">0</span> Pontos ECOA</strong>. Escolha a operadora e a faixa de valor.</p>
+        <section aria-labelledby="op-title">
+          <h2 id="op-title" style="font-size:var(--fs-lg);margin:var(--sp-6) 0 var(--sp-4)">1. Escolha a operadora</h2>
+          <ul id="op-list" class="grid grid-2 op-list" role="list"></ul>
+        </section>
+        <section id="faixa-section" aria-labelledby="faixa-title" hidden>
+          <h2 id="faixa-title" style="font-size:var(--fs-lg);margin:var(--sp-7) 0 var(--sp-4)">2. Escolha a faixa de valor</h2>
+          <ul id="faixa-list" class="grid grid-4 faixa-list" role="list"></ul>
+          <div id="confirm-box" class="card mt-6" hidden style="background:var(--soul-100);border:none" role="region" aria-label="Confirmação do resgate">
+            <p id="confirm-text" style="font-size:var(--fs-md)"></p>
+            <button id="gerar-btn" type="button" class="btn btn--primary btn--lg mt-5" disabled>Gerar cupom</button>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="brand" style="color:#fff"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</p>
+          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+        </div>
+        <nav aria-label="Rodapé — navegação">
+          <h2 class="visually-hidden">Navegação do rodapé</h2>
+          <h3>Navegação</h3>
+          <ul role="list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
+          <h3>Projeto</h3>
+          <ul role="list">
+            <li><a href="integrantes.html">Integrantes</a></li>
+            <li><a href="carteira.html">Carteira</a></li>
+            <li><a href="resgatar.html">Resgatar</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-bottom">
+        <span>Turma 1TDSPX-2026 · FIAP</span>
+        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+      </p>
+    </div>
+  </footer>
+  <script src="js/mock-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/resgatar.js"></script>
+</body>
+</html>
