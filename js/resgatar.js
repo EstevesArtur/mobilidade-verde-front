@@ -123,15 +123,10 @@ gerar cupom. Markup gerado é semântico (<li> + <button>).
         `por <strong>${fmtPontos(faixaSel.pontos_necessarios)} Pontos ECOA</strong>. ` +
 
         `Saldo após resgate: <strong>${fmtPontos(USUARIO_ATUAL.saldo_pontos - faixaSel.pontos_necessarios)}</strong> pts.`;
-
-      gerarBtn.disabled = false;
-
+    gerarBtn.disabled = false;
     } else if (confirmBox) {
-
-      confirmBox.hidden = true;
-
-      gerarBtn.disabled = true;
-
+    confirmBox.hidden = true;
+    gerarBtn.disabled = true;
     }
 
   }
