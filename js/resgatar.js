@@ -1,13 +1,9 @@
 /* ============================================================
-
    RESGATAR · Mobilidade Verde
-
    Passo 3-5: escolher operadora → faixa → validar saldo →
-
    gerar cupom. Markup gerado é semântico (<li> + <button>).
-
-   ============================================================ */
- 
+    ============================================================ */
+    
 (function resgatar() {
 
   const opWrap = document.querySelector("#op-list");
