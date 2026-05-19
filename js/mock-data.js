@@ -6,7 +6,7 @@
 
 // T_USUARIO + T_CARTEIRA (1:1)
 const USUARIOS = [
-  { id_usuario: 1, nome: "Marina Soares",  cidade: "São Paulo",      saldo_pontos: 4200 },
+  { id_usuario: 1, nome: "Marina Soares",  cidade: "São Paulo",      saldo_pontos: 5000 },
   { id_usuario: 2, nome: "Rafael Lima",    cidade: "Rio de Janeiro", saldo_pontos: 1500 },
   { id_usuario: 3, nome: "Bruna Teixeira", cidade: "São Paulo",      saldo_pontos: 180  }, // saldo insuficiente p/ R$20
 ];
@@ -29,10 +29,10 @@ const OPERADORAS = [
 
 // T_FAIXA_CUPOM
 const FAIXAS = [
-  { id_faixa: 1, valor_centavos: 200,  pontos_necessarios: 250,  ativo: "S" },
-  { id_faixa: 2, valor_centavos: 500,  pontos_necessarios: 600,  ativo: "S" },
-  { id_faixa: 3, valor_centavos: 1000, pontos_necessarios: 1150, ativo: "S" },
-  { id_faixa: 4, valor_centavos: 2000, pontos_necessarios: 2200, ativo: "S" },
+  { id_faixa: 1, valor_centavos: 200,  pontos_necessarios: 200,  ativo: "S" },
+  { id_faixa: 2, valor_centavos: 500,  pontos_necessarios: 500,  ativo: "S" },
+  { id_faixa: 3, valor_centavos: 1000, pontos_necessarios: 1000, ativo: "S" },
+  { id_faixa: 4, valor_centavos: 2000, pontos_necessarios: 2000, ativo: "S" },
 ];
 
 // T_VOUCHER (exemplos)
@@ -52,9 +52,9 @@ const VOUCHERS = [
 // T_TRANSACAO_PONTOS (histórico da carteira)
 const TRANSACOES = [
   { id_transacao: 1, id_usuario: 1, tipo: "CREDITO", pontos: 800, origem: "OUTROS",           descricao: "Campanha parceiro · vídeo", data_transacao: "2026-05-15T11:20:00" },
-  { id_transacao: 2, id_usuario: 1, tipo: "DEBITO",  pontos: 600, origem: "VOUCHER_GERACAO",  descricao: "Cupom TOP R$5,00",          data_transacao: "2026-05-16T20:10:00" },
+  { id_transacao: 2, id_usuario: 1, tipo: "DEBITO",  pontos: 500, origem: "VOUCHER_GERACAO",  descricao: "Cupom TOP R$5,00",          data_transacao: "2026-05-16T20:10:00" },
   { id_transacao: 3, id_usuario: 1, tipo: "CREDITO", pontos: 1200,origem: "OUTROS",           descricao: "Compra cartão parceiro",     data_transacao: "2026-05-14T16:05:00" },
-  { id_transacao: 4, id_usuario: 1, tipo: "DEBITO",  pontos: 250, origem: "VOUCHER_GERACAO",  descricao: "Cupom SPTrans R$2,00",       data_transacao: "2026-05-02T09:00:00" },
+  { id_transacao: 4, id_usuario: 1, tipo: "DEBITO",  pontos: 200, origem: "VOUCHER_GERACAO",  descricao: "Cupom SPTrans R$2,00",       data_transacao: "2026-05-02T09:00:00" },
   { id_transacao: 5, id_usuario: 1, tipo: "CREDITO", pontos: 450, origem: "OUTROS",           descricao: "Check-in evento sustentável",data_transacao: "2026-04-29T18:40:00" },
 ];
 
