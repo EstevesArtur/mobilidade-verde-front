@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato · Mobilidade Verde</title>
+  <meta name="description" content="Fale com a equipe Mobilidade Verde ou use o assistente virtual.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">&#9776;</button>
+      <nav class="nav-links" id="menu-principal" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="carteira.html">Carteira</a>
+        <a href="faq.html">FAQ</a>
+        <a href="integrantes.html">Integrantes</a>
+        <a href="contato.html" aria-current="page">Contato</a>
+      </nav>
+    </div>
+  </header>
+  <main id="conteudo">
+    <header class="page-head">
+      <div class="container">
+        <h1>Contato</h1>
+        <p>Dúvidas sobre o resgate? Fale com a gente ou use o assistente virtual da SoulUp.</p>
+      </div>
+    </header>
+    <section class="section" aria-label="Canais de contato">
+      <div class="container grid grid-2" style="align-items:start">
+        <article class="card">
+          <h2 style="font-size:var(--fs-xl)">Envie uma mensagem</h2>
+          <form id="contato-form" class="mt-5" novalidate>
+            <fieldset style="border:none;padding:0;margin:0">
+              <legend class="visually-hidden">Formulário de contato</legend>
+              <div class="field" data-field="nome">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required aria-required="true" aria-describedby="err-nome">
+                <span class="err" id="err-nome">Informe ao menos 3 caracteres.</span>
+              </div>
+              <div class="field" data-field="email">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="voce@email.com" required aria-required="true" aria-describedby="err-email">
+                <span class="err" id="err-email">E-mail inválido.</span>
+              </div>
+              <div class="field" data-field="mensagem">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Como podemos ajudar?" required aria-required="true" aria-describedby="err-mensagem"></textarea>
+                <span class="err" id="err-mensagem">Mensagem muito curta (mín. 10 caracteres).</span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
+              <p class="form-note mt-5" role="status" aria-live="polite"></p>
+            </fieldset>
+          </form>
+        </article>
+        <article class="card">
+          <p class="badge badge--soul">Assistente virtual</p>
+          <h2 style="font-size:var(--fs-xl);margin-top:12px">Fale com o chatbot SoulUp</h2>
+          <p class="mt-5" style="color:var(--grafite-700)">O assistente Mobilidade Verde (IBM Watson Assistant) tira dúvidas sobre saldo, operadoras e uso do cupom — integrado por Webchat e Telegram.</p>
+          <aside class="card card--flat mt-5" style="background:var(--soul-100);border:none" aria-label="Chatbot Mobilidade Verde">
+            <p style="font-weight:700">🤖 Chatbot Mobilidade Verde</p>
+            <p style="font-size:var(--fs-sm);color:var(--grafite-700);margin-top:6px">Espaço reservado para o iframe/Webchat do Watson Assistant (entrega da disciplina de IA &amp; Chatbot — Yan).</p>
+            <p class="mt-5"><a href="#" class="btn btn--ghost">Abrir assistente</a></p>
+          </aside>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="brand" style="color:#fff"><span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde</p>
+          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+        </div>
+        <nav aria-label="Rodapé — navegação">
+          <h2 class="visually-hidden">Navegação do rodapé</h2>
+          <h3>Navegação</h3>
+          <ul role="list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
+          <h3>Projeto</h3>
+          <ul role="list">
+            <li><a href="integrantes.html">Integrantes</a></li>
+            <li><a href="carteira.html">Carteira</a></li>
+            <li><a href="resgatar.html">Resgatar</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-bottom">
+        <span>Turma 1TDSPX-2026 · FIAP</span>
+        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+      </p>
+    </div>
+  </footer>
+  <script src="js/mock-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
