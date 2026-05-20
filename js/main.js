@@ -17,14 +17,27 @@
 // ---------- Acordeão FAQ ----------
 (function faqAccordion() {
   const items = document.querySelectorAll(".accordion-q");
+
   items.forEach((q) => {
     q.addEventListener("click", () => {
-      const ans = q.nextElementSibling;
+      const item = q.closest(".accordion-item");
+      const ans = item ? item.querySelector(".accordion-a") : null;
+
+      if (!ans) return;
+
       const open = q.getAttribute("aria-expanded") === "true";
+
       document.querySelectorAll(".accordion-q").forEach((other) => {
+        const otherItem = other.closest(".accordion-item");
+        const otherAns = otherItem ? otherItem.querySelector(".accordion-a") : null;
+
         other.setAttribute("aria-expanded", "false");
-        other.nextElementSibling.style.maxHeight = null;
+
+        if (otherAns) {
+          otherAns.style.maxHeight = "0px";
+        }
       });
+
       if (!open) {
         q.setAttribute("aria-expanded", "true");
         ans.style.maxHeight = ans.scrollHeight + "px";
