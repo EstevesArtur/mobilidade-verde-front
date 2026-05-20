@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cupom · Mobilidade Verde</title>
   <meta name="description" content="Seu cupom de transporte gerado a partir dos Pontos ECOA.">
+
+  <!-- Fontes do Google: Sora (títulos) + Manrope (corpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS do projeto: reset -> tokens -> layout -> components -> utilities -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
 </head>
 <body>
+  <!-- ============ HEADER · marca + menu ============ -->
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html" aria-current="page">Carteira</a>
@@ -28,49 +36,58 @@
       </nav>
     </div>
   </header>
+
+  <!-- ============ MAIN · conteúdo da página ============ -->
   <main>
     <section class="section">
-      <div class="container" style="max-width:620px">
+      <div class="container maxw-620">
         <p class="eyebrow center">Passo 6 a 7 do resgate</p>
-        <h1 class="section-title center">Seu cupom está pronto</h1>
+        <h1 class="section-title center">Seu cupom est&aacute; pronto</h1>
+        <!-- Conteúdo do cupom gerado por js/cupom.js -->
         <div id="coupon-root"></div>
-        <div class="center mt-6">
-          <a href="carteira.html" class="btn btn--ghost">← Voltar para a carteira</a>
-        </div>
+        <p class="center mt-6">
+          <a href="carteira.html" class="btn btn--ghost">&larr; Voltar para a carteira</a>
+        </p>
       </div>
     </section>
+
   </main>
+
+  <!-- ============ FOOTER · marca + navegação + créditos ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
-          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+          <p class="brand color-white">
+            <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+          </p>
+          <p class="footer-brand-desc">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <div>
+        <nav aria-label="Rodapé — navegação">
           <h4>Navegação</h4>
-          <ul>
+          <ul role="list">
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
           <h4>Projeto</h4>
-          <ul>
+          <ul role="list">
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
-        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+        <span>&copy; 2026 Mobilidade Verde — projeto acadêmico</span>
       </div>
     </div>
   </footer>
+
   <script src="js/mock-data.js"></script>
   <script src="js/main.js"></script>
   <script src="js/cupom.js"></script>

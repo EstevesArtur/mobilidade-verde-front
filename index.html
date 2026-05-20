@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mobilidade Verde · SoulUp</title>
   <meta name="description" content="Troque seus Pontos ECOA por cupom real de transporte público, aceito pela TOP e SPTrans.">
+
+  <!-- Fontes do Google: Sora (títulos) + Manrope (corpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS do projeto: reset -> tokens -> layout -> components -> utilities -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
 </head>
 <body>
+  <!-- ============ HEADER · marca + menu ============ -->
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="index.html" aria-current="page">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html">Carteira</a>
@@ -29,93 +37,108 @@
     </div>
   </header>
 
+  <!-- ============ MAIN · conteúdo da página ============ -->
   <main>
+    <!-- Hero principal: chamada e CTA -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="badge badge--soul">Feature SoulUp · Pontos ECOA</span>
+          <span class="badge badge--soul">Feature SoulUp &middot; Pontos ECOA</span>
           <h1>Seus Pontos ECOA<br><span class="accent">viraram passagem.</span></h1>
-          <p>Trocamos seus pontos por cupom real de transporte público, aceito direto pela <b>TOP</b> e <b>SPTrans</b>. Sem burocracia, com impacto ambiental medido.</p>
+          <p>Trocamos seus pontos por cupom real de transporte público, aceito direto pela <strong>TOP</strong> e <strong>SPTrans</strong>. Sem burocracia, com impacto ambiental medido.</p>
           <div class="hero-cta">
             <a href="carteira.html" class="btn btn--primary btn--lg">Ver minha carteira</a>
             <a href="sobre.html" class="btn btn--ghost btn--lg">Como funciona</a>
           </div>
         </div>
-        <div class="phone-mock">
-          <div class="pm-label">Saldo Pontos ECOA</div>
-          <div class="pm-balance">5.000 <span>pts</span></div>
+        <!-- Mockup ilustrativo do app -->
+        <aside class="phone-mock" aria-label="Pré-visualização do app">
+          <p class="pm-label">Saldo Pontos ECOA</p>
+          <p class="pm-balance">5.000 <span>pts</span></p>
           <div class="pm-coupon">
-            <div class="pm-label">Cupom TOP gerado</div>
-            <b>TOP-A7B3-X9K2</b>
+            <p class="pm-label">Cupom TOP gerado</p>
+            <p class="fw-bold">TOP-A7B3-X9K2</p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
+    <!-- 3 passos do fluxo de resgate -->
     <section class="section">
       <div class="container">
         <p class="eyebrow center">Em 3 passos</p>
         <h2 class="section-title center">Do saldo ao embarque</h2>
-        <div class="grid grid-3">
-          <div class="step reveal">
+        <ol class="grid grid-3 steps">
+          <li class="step reveal">
             <h3>Veja seu saldo</h3>
             <p>Abra a carteira e confira seus Pontos ECOA acumulados na SoulUp.</p>
-          </div>
-          <div class="step reveal">
+          </li>
+          <li class="step reveal">
             <h3>Escolha operadora e faixa</h3>
             <p>TOP ou SPTrans, e o valor do cupom: R$2, R$5, R$10 ou R$20.</p>
-          </div>
-          <div class="step reveal">
+          </li>
+          <li class="step reveal">
             <h3>Use o cupom</h3>
             <p>Receba o código + QR e aplique direto no app da operadora.</p>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
+    <!-- Operadoras parceiras -->
     <section class="section--tight">
       <div class="container">
         <div class="card center reveal">
           <p class="eyebrow">Operadoras parceiras no MVP</p>
-          <h2 class="section-title" style="margin-bottom:var(--sp-4)">Aceito onde você anda</h2>
-          <div class="grid grid-2" style="max-width:560px;margin:0 auto">
-            <div><span class="op-logo op-logo--top" style="margin:0 auto">TO</span><p style="margin-top:8px;font-weight:700">TOP</p></div>
-            <div><span class="op-logo op-logo--sptrans" style="margin:0 auto">SP</span><p style="margin-top:8px;font-weight:700">SPTrans</p></div>
-          </div>
+          <h2 class="section-title mb-4">Aceito onde você anda</h2>
+          <ul class="grid grid-2 maxw-560 mx-auto" role="list">
+            <li>
+              <span class="op-logo op-logo--top mx-auto" aria-hidden="true">TO</span>
+              <p class="op-caption">TOP</p>
+            </li>
+            <li>
+              <span class="op-logo op-logo--sptrans mx-auto" aria-hidden="true">SP</span>
+              <p class="op-caption">SPTrans</p>
+            </li>
+          </ul>
           <a href="carteira.html" class="btn btn--transito mt-6">Começar resgate</a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- ============ FOOTER · marca + navegação + créditos ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
-          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+          <p class="brand color-white">
+            <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+          </p>
+          <p class="footer-brand-desc">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <div>
+        <nav aria-label="Rodapé — navegação">
           <h4>Navegação</h4>
-          <ul>
+          <ul role="list">
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
           <h4>Projeto</h4>
-          <ul>
+          <ul role="list">
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
-        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+        <span>&copy; 2026 Mobilidade Verde — projeto acadêmico</span>
       </div>
     </div>
   </footer>

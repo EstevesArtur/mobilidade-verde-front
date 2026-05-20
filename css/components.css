@@ -100,6 +100,7 @@
   box-shadow: var(--shadow-lift);
   transform: rotate(2deg);
 }
+.phone-mock p { color: inherit; max-width: none; margin: 0; }
 .phone-mock .pm-label { font-size: var(--fs-xs); opacity: .7; letter-spacing: .1em; text-transform: uppercase; }
 .phone-mock .pm-balance { font-family: var(--font-display); font-size: var(--fs-3xl); font-weight: 800; }
 .phone-mock .pm-balance span { font-size: var(--fs-md); opacity: .8; font-weight: 600; }
@@ -166,6 +167,41 @@
 .member .rm { color: var(--grafite-500); font-size: var(--fs-sm); margin-top: 2px; }
 .member .turma { color: var(--soul-600); font-size: var(--fs-xs); font-weight: 700; margin-top: var(--sp-2); }
 .member .badge { margin-top: var(--sp-3); }
+/* Foto do integrante dentro do avatar — encaixa redonda */
+.member .avatar { overflow: hidden; }
+.member .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Ícones sociais (LinkedIn + GitHub) abaixo dos dados */
+.member .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.member .social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--soul-100);
+  color: var(--soul-700);
+  transition: background .2s var(--ease), color .2s var(--ease), transform .15s var(--ease);
+}
+.member .social-icons a:hover {
+  background: var(--soul-700);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+.member .social-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
 
 /* ---------- Operadora ---------- */
 .op-card {
@@ -205,8 +241,9 @@
 }
 .faixa-card:hover { transform: translateY(-3px); border-color: var(--soul-300); }
 .faixa-card[aria-pressed="true"] { border-color: var(--soul-600); background: var(--soul-100); }
-.faixa-card .valor { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 800; color: var(--soul-900); }
-.faixa-card .pontos { color: var(--ecoa-700); font-weight: 700; font-size: var(--fs-sm); margin-top: var(--sp-1); }
+.faixa-card .valor { display: block; font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 800; color: var(--soul-900); }
+.faixa-card .pontos { display: block; color: var(--ecoa-700); font-weight: 700; font-size: var(--fs-sm); margin-top: var(--sp-1); }
+.faixa-card .faixa-badge { display: inline-block; margin-top: 8px; }
 
 /* ---------- Carteira ---------- */
 .wallet-hero {
@@ -244,8 +281,8 @@
 .tx-ico--in  { background: var(--soul-100); }
 .tx-ico--out { background: var(--transito-100); }
 .tx-row .tx-main { flex: 1; }
-.tx-row .tx-desc { font-weight: 600; font-size: var(--fs-sm); }
-.tx-row .tx-date { color: var(--grafite-500); font-size: var(--fs-xs); }
+.tx-row .tx-desc { display: block; font-weight: 600; font-size: var(--fs-sm); }
+.tx-row .tx-date { display: block; color: var(--grafite-500); font-size: var(--fs-xs); }
 .tx-row .tx-val { font-family: var(--font-display); font-weight: 800; }
 .tx-val--in  { color: var(--soul-600); }
 .tx-val--out { color: var(--transito-700); }
@@ -271,6 +308,7 @@
 .coupon-top .op-logo { margin: 0; }
 .coupon-body { padding: var(--sp-7) var(--sp-6); text-align: center; }
 .coupon-code {
+  margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 6vw, 3rem);
   font-weight: 800;
@@ -289,7 +327,7 @@
   background: var(--ecoa-100); color: var(--ecoa-700);
   padding: 8px 16px; border-radius: var(--radius-pill);
   font-weight: 700; font-size: var(--fs-sm);
-  margin-top: var(--sp-4);
+  margin: var(--sp-4) 0 0;
 }
 .coupon-steps { text-align: left; max-width: 420px; margin: var(--sp-6) auto 0; }
 .coupon-steps li {
@@ -310,8 +348,8 @@
   gap: var(--sp-5);
   text-align: center;
 }
-.impact-panel .num { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 800; color: var(--soul-700); }
-.impact-panel .cap { font-size: var(--fs-sm); color: var(--grafite-700); }
+.impact-panel .num { margin: 0; font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 800; color: var(--soul-700); }
+.impact-panel .cap { margin: 0; font-size: var(--fs-sm); color: var(--grafite-700); }
 
 /* ---------- Formulário ---------- */
 .field { margin-bottom: var(--sp-5); }
@@ -388,7 +426,7 @@
 .reveal { opacity: 0; transform: translateY(20px); transition: .6s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .hero-grid { grid-template-columns: 1fr; }
   .phone-mock { transform: none; }
   .hero h1 { font-size: var(--fs-3xl); }

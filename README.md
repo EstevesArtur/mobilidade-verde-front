@@ -5,17 +5,19 @@
 
 Projeto acadêmico desenvolvido para o **Challenge SoulUp 2026** — FIAP, 1º ano de Análise e Desenvolvimento de Sistemas.
 
+🔗 **Repositório público:** https://github.com/EstevesArtur/mobilidade-verde-front
+
 ---
 
 ## 👥 Integrantes — Turma 1TDSPX-2026
 
-| Nome | RM | Papel |
-|---|---|---|
-| Diego Barbosa | RM568829 | Integrante |
-| **Artur Esteves** | **RM569450** | **Representante** |
-| João Fontenele | RM570783 | Integrante |
-| Vinicius Pacheco | RM571109 | Integrante |
-| Yan Almeida | RM568814 | Integrante |
+| Nome | RM | Papel | LinkedIn | GitHub |
+|---|---|---|---|---|
+| Diego Barbosa | RM568829 | Integrante | [@diego-barbosa-rodrigues](https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321) | [@DiegoRodri1](https://github.com/DiegoRodri1) |
+| **Artur Esteves** | **RM569450** | **★ Representante** | [@artur-esteves](https://www.linkedin.com/in/artur-esteves-31bb4130a/) | [@EstevesArtur](https://github.com/EstevesArtur) |
+| João Fontenele | RM570783 | Integrante | [@joão-fontenele](https://www.linkedin.com/in/jo%C3%A3o-fontenele-65b1913a8/) | [@joaofontenele06](https://github.com/joaofontenele06) |
+| Vinicius Pacheco | RM571109 | Integrante | [@vinicius-pacheco-ruiz](https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/) | [@viniciuspr27](https://github.com/viniciuspr27) |
+| Yan Almeida | RM568814 | Integrante | [@yan-almeida-cardoso](https://br.linkedin.com/in/yan-de-almeida-cardoso-2210372ba) | [@YanAlmeidaC](https://github.com/YanAlmeidaC) |
 
 ---
 
@@ -34,6 +36,37 @@ carteira.html  →  resgatar.html  →  cupom.html
 (ver saldo)       (operadora+faixa)  (código + QR + impacto)
 ```
 
+Conversão Pontos ECOA → Real (por faixa fixa):
+
+| Faixa | Pontos ECOA |
+|---|---|
+| R$ 2,00 | 200 pts |
+| R$ 5,00 | 500 pts |
+| R$ 10,00 | 1.000 pts |
+| R$ 20,00 | 2.000 pts |
+
+---
+
+## 🖼️ Prints do projeto
+
+### Página inicial
+![Home — hero, 3 passos e operadoras parceiras](img/screenshots/01-index.png)
+
+### Carteira (saldo + histórico)
+![Carteira — saldo de Pontos ECOA e movimentações](img/screenshots/02-carteira.png)
+
+### Resgate (operadora + faixa)
+![Resgatar — escolher operadora TOP/SPTrans e faixa de valor](img/screenshots/03-resgatar.png)
+
+### Cupom (tela-estrela)
+![Cupom — código, QR, validade e impacto de CO₂](img/screenshots/04-cupom.png)
+
+### Integrantes
+![Integrantes — 5 cards com foto, RM e redes sociais](img/screenshots/05-integrantes.png)
+
+### Sobre
+![Sobre — contexto, tese, tecnologias e roadmap](img/screenshots/06-sobre.png)
+
 ---
 
 ## 🗂️ Estrutura de pastas
@@ -41,25 +74,28 @@ carteira.html  →  resgatar.html  →  cupom.html
 ```
 mobilidade-verde-front/
 ├── index.html            # Hero + 3 passos + credibilidade
-├── sobre.html            # Contexto SoulUp/Prospera + tese + valor
-├── integrantes.html      # 5 cards (nome, RM, turma, representante)
-├── faq.html              # 8 perguntas (acordeão vanilla)
+├── sobre.html            # Contexto + tese + tecnologias + roadmap
+├── integrantes.html      # 5 cards (nome, foto, RM, turma, LinkedIn, GitHub)
+├── faq.html              # 8 perguntas em acordeão acessível
 ├── contato.html          # Formulário validado + espaço do chatbot
 ├── carteira.html         # Saldo ECOA + histórico (Passo 1-2)
 ├── resgatar.html         # Operadora + faixa + confirmação (Passo 3-5)
 ├── cupom.html            # Código + QR + validade + impacto (Passo 6-7)
 ├── css/
-│   ├── reset.css         # Normalização
-│   ├── tokens.css        # Design tokens (paleta SoulUp)
-│   ├── layout.css        # Grid, header, footer, responsivo
-│   └── components.css    # Botões, cards, cupom, carteira
+│   ├── reset.css         # Normalização e foco acessível
+│   ├── tokens.css        # Design tokens (paleta SoulUp + tipografia)
+│   ├── layout.css        # Grid, header sticky, footer, breakpoints
+│   ├── components.css    # Botões, cards, cupom, carteira, formulário
+│   └── utilities.css     # Classes utilitárias (espaçamento, cor, tipografia)
 ├── js/
 │   ├── mock-data.js      # Dados espelhando o DDL do banco
-│   ├── main.js           # Nav mobile, FAQ, validação, reveal
-│   ├── carteira.js       # Renderiza saldo + histórico
+│   ├── main.js           # Nav mobile, acordeão FAQ, validação, reveal
+│   ├── carteira.js       # Renderiza saldo + histórico de transações
 │   ├── resgatar.js       # Fluxo operadora → faixa → cupom
-│   └── cupom.js          # Código, QR, contagem regressiva, CO₂
+│   └── cupom.js          # Código, QR via API, contagem regressiva, CO₂
 ├── img/
+│   ├── integrantes/      # Fotos dos 5 integrantes
+│   ├── screenshots/      # Prints das telas (referenciados aqui)
 │   ├── top.svg           # Logo mockado TOP
 │   └── sptrans.svg       # Logo mockado SPTrans
 └── README.md
@@ -72,10 +108,9 @@ mobilidade-verde-front/
 Não há build nem dependências. Basta:
 
 ```bash
-# clonar e abrir
-git clone <url-do-repositorio>
+git clone https://github.com/EstevesArtur/mobilidade-verde-front.git
 cd mobilidade-verde-front
-# abrir index.html no navegador (duplo clique) — pronto.
+# abrir index.html no navegador
 ```
 
 > Dica: para testar a navegação por querystring (`cupom.html`), sirva localmente:
@@ -83,19 +118,30 @@ cd mobilidade-verde-front
 
 ---
 
-## 🛠️ Tecnologias
+## 🛠️ Tecnologias utilizadas
 
-- **HTML5** puro
-- **CSS** puro (Flexbox, Grid, variáveis CSS, media queries)
-- **JavaScript** vanilla (fetch/DOM/`URLSearchParams`)
+- **HTML5** semântico (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
+- **CSS3** puro (Flexbox, Grid, variáveis CSS, media queries para mobile/tablet/desktop)
+- **JavaScript** vanilla (manipulação de DOM, eventos, `URLSearchParams`, Clipboard API)
 - **Google Fonts** via `<link>` (Sora + Manrope)
 - **API externa de QR Code** via `<img>` (`api.qrserver.com`)
+- **Ícones SVG inline** (LinkedIn e GitHub, sem dependências externas)
 
 ### ⚠️ ZERO framework usado
 
 Não há React, Vue, Angular, Bootstrap, Tailwind, jQuery, Sass ou qualquer
 biblioteca de terceiros. Todo o CSS e JS é autoral e pode ser auditado
 arquivo por arquivo.
+
+---
+
+## 📱 Responsividade
+
+Breakpoints alinhados com a rubrica oficial do Challenge:
+
+- **Mobile:** até 480px — layout em coluna única, menu hambúrguer
+- **Tablet:** ≥ 768px — grids de 2 colunas, espaçamento intermediário
+- **Desktop:** ≥ 992px — layout completo com 3-4 colunas
 
 ---
 
@@ -129,6 +175,16 @@ reescrever a camada de dados.
 - Novas operadoras (modelagem já extensível)
 - Histórico de viagens e dashboard de impacto acumulado
 - Tema escuro (tokens já preparados em `tokens.css`)
+
+---
+
+## 📞 Contato
+
+Dúvidas, suporte ou propostas? Fale com o líder do grupo:
+
+- **E-mail:** Arturbianchini21@gmail.com
+- **Telefone / WhatsApp:** (11) 99551-1888
+- **Issues no GitHub:** https://github.com/EstevesArtur/mobilidade-verde-front/issues
 
 ---
 

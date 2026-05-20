@@ -5,20 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Integrantes · Mobilidade Verde</title>
   <meta name="description" content="Equipe do projeto Mobilidade Verde — Turma 1TDSPX-2026 FIAP.">
+
+  <!-- Fontes do Google: Sora (títulos) + Manrope (corpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS do projeto: reset -> tokens -> layout -> components -> utilities -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
 </head>
 <body>
+  <!-- ============ HEADER · marca + menu ============ -->
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="carteira.html">Carteira</a>
@@ -28,86 +36,147 @@
       </nav>
     </div>
   </header>
+
+  <!-- ============ MAIN · conteúdo da página ============ -->
   <main>
-    <section class="page-head">
+    <!-- Cabeçalho da página -->
+    <header class="page-head">
       <div class="container">
         <h1>Integrantes</h1>
-        <p>Grupo do Challenge SoulUp 2026 · 1º ano de Análise e Desenvolvimento de Sistemas · FIAP.</p>
+        <p>Grupo do Challenge SoulUp 2026 &middot; 1&ordm; ano de An&aacute;lise e Desenvolvimento de Sistemas &middot; FIAP.</p>
       </div>
-    </section>
+    </header>
+
+    <!-- Grid com os 5 cards de integrante -->
     <section class="section">
       <div class="container">
-        <div class="grid grid-3">
-          <div class="member reveal">
-            <div class="avatar">DB</div>
-            <h3>Diego Barbosa</h3>
-            <div class="rm">RM568829</div>
-            <div class="turma">Turma 1TDSPX-2026</div>
-            <span class="badge badge--soul">Integrante</span>
-          </div>
-          <div class="member reveal">
-            <div class="avatar">AE</div>
-            <h3>Artur Esteves</h3>
-            <div class="rm">RM569450</div>
-            <div class="turma">Turma 1TDSPX-2026</div>
-            <span class="badge badge--rep">★ Representante</span>
-          </div>
-          <div class="member reveal">
-            <div class="avatar">JF</div>
-            <h3>João Fontenele</h3>
-            <div class="rm">RM570783</div>
-            <div class="turma">Turma 1TDSPX-2026</div>
-            <span class="badge badge--soul">Integrante</span>
-          </div>
-          <div class="member reveal">
-            <div class="avatar">VP</div>
-            <h3>Vinicius Pacheco</h3>
-            <div class="rm">RM571109</div>
-            <div class="turma">Turma 1TDSPX-2026</div>
-            <span class="badge badge--soul">Integrante</span>
-          </div>
-          <div class="member reveal">
-            <div class="avatar">YA</div>
-            <h3>Yan Almeida</h3>
-            <div class="rm">RM568814</div>
-            <div class="turma">Turma 1TDSPX-2026</div>
-            <span class="badge badge--soul">Integrante</span>
-          </div>
-        </div>
+        <ul class="grid grid-3" role="list">
+          <li>
+            <article class="member reveal">
+              <!-- Avatar com foto do integrante -->
+              <div class="avatar">
+                <img src="img/integrantes/diego.jpg" alt="Foto de Diego Barbosa" width="78" height="78" loading="lazy">
+              </div>
+              <h3>Diego Barbosa</h3>
+              <p class="rm">RM568829</p>
+              <p class="turma">Turma 1TDSPX-2026</p>
+              <p class="badge badge--soul">Integrante</p>
+              <!-- Redes sociais (obrigatório pela rubrica) -->
+              <div class="social-icons">
+                <a href="https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Diego Barbosa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+                <a href="https://github.com/DiegoRodri1" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Diego Barbosa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg></a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="member reveal">
+              <!-- Avatar com foto do integrante -->
+              <div class="avatar">
+                <img src="img/integrantes/artur.jpg" alt="Foto de Artur Esteves" width="78" height="78" loading="lazy">
+              </div>
+              <h3>Artur Esteves</h3>
+              <p class="rm">RM569450</p>
+              <p class="turma">Turma 1TDSPX-2026</p>
+              <p class="badge badge--rep">&#9733; Representante</p>
+              <!-- Redes sociais (obrigatório pela rubrica) -->
+              <div class="social-icons">
+                <a href="https://www.linkedin.com/in/artur-esteves-31bb4130a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Artur Esteves"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+                <a href="https://github.com/EstevesArtur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Artur Esteves"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg></a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="member reveal">
+              <!-- Avatar com foto do integrante -->
+              <div class="avatar">
+                <img src="img/integrantes/joao.jpg" alt="Foto de João Fontenele" width="78" height="78" loading="lazy">
+              </div>
+              <h3>João Fontenele</h3>
+              <p class="rm">RM570783</p>
+              <p class="turma">Turma 1TDSPX-2026</p>
+              <p class="badge badge--soul">Integrante</p>
+              <!-- Redes sociais (obrigatório pela rubrica) -->
+              <div class="social-icons">
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-fontenele-65b1913a8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de João Fontenele"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+                <a href="https://github.com/joaofontenele06" target="_blank" rel="noopener noreferrer" aria-label="GitHub de João Fontenele"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg></a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="member reveal">
+              <!-- Avatar com foto do integrante -->
+              <div class="avatar">
+                <img src="img/integrantes/vinicius.jpg" alt="Foto de Vinicius Pacheco" width="78" height="78" loading="lazy">
+              </div>
+              <h3>Vinicius Pacheco</h3>
+              <p class="rm">RM571109</p>
+              <p class="turma">Turma 1TDSPX-2026</p>
+              <p class="badge badge--soul">Integrante</p>
+              <!-- Redes sociais (obrigatório pela rubrica) -->
+              <div class="social-icons">
+                <a href="https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Vinicius Pacheco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+                <a href="https://github.com/viniciuspr27" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Vinicius Pacheco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg></a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="member reveal">
+              <!-- Avatar com foto do integrante -->
+              <div class="avatar">
+                <img src="img/integrantes/yan.jpg" alt="Foto de Yan Almeida" width="78" height="78" loading="lazy">
+              </div>
+              <h3>Yan Almeida</h3>
+              <p class="rm">RM568814</p>
+              <p class="turma">Turma 1TDSPX-2026</p>
+              <p class="badge badge--soul">Integrante</p>
+              <!-- Redes sociais (obrigatório pela rubrica) -->
+              <div class="social-icons">
+                <a href="https://br.linkedin.com/in/yan-de-almeida-cardoso-2210372ba" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Yan Almeida"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.03-1.85-3.03-1.85 0-2.13 1.44-2.13 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+                <a href="https://github.com/YanAlmeidaC" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Yan Almeida"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 00-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.7.1-.7 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0012 .3"/></svg></a>
+              </div>
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
+
   </main>
+
+  <!-- ============ FOOTER · marca + navegação + créditos ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
-          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+          <p class="brand color-white">
+            <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+          </p>
+          <p class="footer-brand-desc">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <div>
+        <nav aria-label="Rodapé — navegação">
           <h4>Navegação</h4>
-          <ul>
+          <ul role="list">
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
           <h4>Projeto</h4>
-          <ul>
+          <ul role="list">
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
-        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+        <span>&copy; 2026 Mobilidade Verde — projeto acadêmico</span>
       </div>
     </div>
   </footer>
+
   <script src="js/mock-data.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,18 +1,20 @@
 /* ============================================================
    CUPOM · Mobilidade Verde — tela-estrela
    Gera código, QR (API externa via <img>), validade regressiva,
-   painel de impacto (CO2 evitado via fator da operadora)
+   painel de impacto (CO2 evitado via fator da operadora).
+   Markup gerado é semântico: <article>, <header>, <ol>, <time>.
    ============================================================ */
 
 (function cupom() {
   const root = document.querySelector("#coupon-root");
   if (!root) return;
 
-  const qs = new URLSearchParams(location.search);
-  const op = getOperadora(Number(qs.get("op"))) || OPERADORAS[0];
-  const faixa = getFaixa(Number(qs.get("faixa"))) || FAIXAS[1];
+  // Recupera operadora e faixa via querystring (vindas do resgatar.html)
+  const qs    = new URLSearchParams(location.search);
+  const op    = getOperadora(Number(qs.get("op")))    || OPERADORAS[0];
+  const faixa = getFaixa(Number(qs.get("faixa")))     || FAIXAS[1];
 
-  // Código no formato_codigo da operadora (ex.: TOP-A7B3-X9K2)
+  // ----- Geração do código no formato da operadora (ex.: TOP-A7B3-X9K2) -----
   function bloco() {
     const c = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
     let s = "";
@@ -20,34 +22,44 @@
     return s;
   }
   const prefixo = op.nome === "TOP" ? "TOP" : "SPT";
-  const codigo = `${prefixo}-${bloco()}-${bloco()}`;
+  const codigo  = `${prefixo}-${bloco()}-${bloco()}`;
 
-  // Estimativa de viagem + CO2 evitado (espelha T_VIAGEM)
-  const passagens = Math.max(1, Math.round(faixa.valor_centavos / op.valor_passagem_centavos));
+  // ----- Estimativa de viagem + CO2 evitado (espelha T_VIAGEM) -----
+  const passagens  = Math.max(1, Math.round(faixa.valor_centavos / op.valor_passagem_centavos));
   const kmEstimado = passagens * 8.5; // ~8,5 km por trajeto médio urbano
-  const co2Kg = +(kmEstimado * op.fator_co2_kg_km).toFixed(2);
-  const arvores = Math.max(1, Math.round(co2Kg / 0.06)); // ~60g CO2/dia por muda jovem
+  const co2Kg      = +(kmEstimado * op.fator_co2_kg_km).toFixed(2);
+  const arvores    = Math.max(1, Math.round(co2Kg / 0.06)); // ~60g CO2/dia por muda jovem
 
-  // QR via API externa (sem lib JS — decisão do grupo)
+  // ----- QR Code via API externa (sem lib JS — decisão do grupo) -----
   const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" +
                 encodeURIComponent(codigo);
 
+  // ----- Validade: 24h após a geração -----
+  const expira = new Date(Date.now() + 24 * 60 * 60 * 1000);
+
+  // ----- Markup do cupom (article semântico) -----
   root.innerHTML = `
-    <div class="coupon">
-      <div class="coupon-top">
+    <article class="coupon" aria-label="Cupom ${op.nome} ${fmtReais(faixa.valor_centavos)}">
+      <header class="coupon-top">
         <div>
-          <div class="badge badge--ok">CUPOM GERADO</div>
-          <h3 style="color:#fff;margin-top:8px">${op.nome} · ${fmtReais(faixa.valor_centavos)}</h3>
+          <p class="badge badge--ok">CUPOM GERADO</p>
+          <h2 class="color-white mt-3">${op.nome} · ${fmtReais(faixa.valor_centavos)}</h2>
         </div>
-        <span class="op-logo op-logo--${op.nome.toLowerCase()}">${op.nome.slice(0,2).toUpperCase()}</span>
-      </div>
+        <span class="op-logo op-logo--${op.nome.toLowerCase()}" aria-hidden="true">${op.nome.slice(0,2).toUpperCase()}</span>
+      </header>
       <div class="coupon-body">
         <p class="eyebrow">Seu código de cupom</p>
-        <div class="coupon-code" id="cod">${codigo}</div>
-        <div class="coupon-expiry" id="exp">⏳ calculando validade…</div>
-        <div class="coupon-qr"><img src="${qrUrl}" alt="QR Code do cupom ${codigo}"></div>
-        <button class="btn btn--transito" id="copy-btn">📋 Copiar código</button>
+        <p class="coupon-code" id="cod">${codigo}</p>
+        <p class="coupon-expiry" id="exp">
+          ⏳ calculando validade…
+          <time class="visually-hidden" datetime="${expira.toISOString()}">expira ${expira.toLocaleString("pt-BR")}</time>
+        </p>
+        <figure class="coupon-qr">
+          <img src="${qrUrl}" alt="QR Code do cupom ${codigo}" width="200" height="200">
+        </figure>
+        <button class="btn btn--transito" type="button" id="copy-btn">📋 Copiar código</button>
 
+        <h3 class="visually-hidden">Como usar o cupom</h3>
         <ol class="coupon-steps">
           <li><b>1.</b> Abra o app da ${op.nome}</li>
           <li><b>2.</b> Vá em Recarga / Cupom</li>
@@ -55,20 +67,21 @@
           <li><b>4.</b> Use seu cartão de transporte normalmente</li>
         </ol>
       </div>
-    </div>
+    </article>
 
-    <div class="impact-panel mt-6">
+    <section class="impact-panel mt-6" aria-label="Impacto ambiental desta viagem">
+      <h3 class="visually-hidden">Impacto ambiental</h3>
       <div>
-        <div class="num">${co2Kg} kg</div>
-        <div class="cap">CO₂ evitado nesta viagem</div>
+        <p class="num">${co2Kg} kg</p>
+        <p class="cap">CO₂ evitado nesta viagem</p>
       </div>
       <div>
-        <div class="num">🌳 ${arvores}</div>
-        <div class="cap">equivalente a ${arvores} muda(s) absorvendo CO₂ por 1 dia</div>
+        <p class="num">🌳 ${arvores}</p>
+        <p class="cap">equivalente a ${arvores} muda(s) absorvendo CO₂ por 1 dia</p>
       </div>
-    </div>`;
+    </section>`;
 
-  // Copiar código
+  // ----- Botão "Copiar código" -----
   document.querySelector("#copy-btn").addEventListener("click", async (e) => {
     try {
       await navigator.clipboard.writeText(codigo);
@@ -79,17 +92,16 @@
     }
   });
 
-  // Contagem regressiva de 24h (T_VOUCHER.expira_em)
-  const expira = Date.now() + 24 * 60 * 60 * 1000;
+  // ----- Contagem regressiva de 24h (T_VOUCHER.expira_em) -----
   const expEl = document.querySelector("#exp");
   function tick() {
-    const diff = expira - Date.now();
+    const diff = expira.getTime() - Date.now();
     if (diff <= 0) { expEl.textContent = "❌ Cupom expirado"; return; }
     const h = Math.floor(diff / 3.6e6);
     const m = Math.floor((diff % 3.6e6) / 6e4);
     const s = Math.floor((diff % 6e4) / 1000);
     expEl.textContent = `⏳ Expira em ${h}h ${String(m).padStart(2,"0")}min ${String(s).padStart(2,"0")}s`;
-    requestAnimationFrame(() => setTimeout(tick, 1000));
+    setTimeout(tick, 1000);
   }
   tick();
 })();

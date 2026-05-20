@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre · Mobilidade Verde</title>
-  <meta name="description" content="Contexto SoulUp/Prospera e a tese da feature de resgate Mobilidade Verde.">
+  <meta name="description" content="Contexto SoulUp/Prospera, tese de resgate, tecnologias e roadmap.">
+
+  <!-- Fontes do Google: Sora (títulos) + Manrope (corpo) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS do projeto: reset -> tokens -> layout -> components -> utilities -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/utilities.css">
 </head>
 <body>
+  <!-- ============ HEADER · marca + menu ============ -->
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="brand"><span class="brand-mark">M</span> Mobilidade Verde</a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
-      <nav class="nav-links">
+      <a href="index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav class="nav-links" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="sobre.html" aria-current="page">Sobre</a>
         <a href="carteira.html">Carteira</a>
@@ -28,70 +36,130 @@
       </nav>
     </div>
   </header>
+
+  <!-- ============ MAIN · conteúdo da página ============ -->
   <main>
-    <section class="page-head">
+    <!-- Cabeçalho da página -->
+    <header class="page-head">
       <div class="container">
         <h1>Sobre o projeto</h1>
         <p>Mobilidade Verde é a ponte entre os Pontos ECOA da SoulUp e o transporte público real.</p>
       </div>
-    </section>
-    <section class="section">
-      <div class="container" style="max-width:820px">
-        <p class="eyebrow">O ecossistema</p>
-        <h2 class="section-title">SoulUp + Prospera</h2>
-        <p class="lead">A <b>Prospera</b> é uma loyaltytech verde brasileira. Em 2025 adquiriu a SoulPrime e lançou a <b>SoulUp</b>: uma rede social onde interações geram <b>Pontos ECOA</b>, moeda digital verde lastreada em créditos de carbono e energia limpa. Hoje os pontos viram desconto na conta de luz, experiências e compensação de carbono.</p>
+    </header>
 
-        <p class="eyebrow mt-6">Nossa tese</p>
-        <h2 class="section-title">Resgate em transporte público</h2>
-        <p class="lead">A geração de pontos já existe e não é nosso escopo. <b>Mobilidade Verde adiciona um novo caminho de resgate</b>: trocar Pontos ECOA por cupom real de transporte (TOP e SPTrans). A Prospera financia o cupom como custo de aquisição (CAC) para a Energia Verde; a operadora recebe o valor cheio.</p>
+    <article class="section">
+      <div class="container maxw-820">
+        <!-- Ecossistema -->
+        <section>
+          <p class="eyebrow">O ecossistema</p>
+          <h2 class="section-title">SoulUp + Prospera</h2>
+          <p class="lead">A <strong>Prospera</strong> é uma loyaltytech verde brasileira. Em 2025 adquiriu a SoulPrime e lançou a <strong>SoulUp</strong>: uma rede social onde interações geram <strong>Pontos ECOA</strong>, moeda digital verde lastreada em créditos de carbono e energia limpa. Hoje os pontos viram desconto na conta de luz, experiências e compensação de carbono.</p>
+        </section>
 
-        <p class="eyebrow mt-6">Operadoras parceiras</p>
-        <div class="grid grid-2 mt-5" style="max-width:560px">
-          <div class="card center"><span class="op-logo op-logo--top" style="margin:0 auto">TO</span><h3 style="margin-top:12px">TOP</h3><p class="op-meta">Bilhetagem integrada · destaque do MVP</p></div>
-          <div class="card center"><span class="op-logo op-logo--sptrans" style="margin:0 auto">SP</span><h3 style="margin-top:12px">SPTrans</h3><p class="op-meta">Ônibus · São Paulo</p></div>
-        </div>
+        <!-- Tese -->
+        <section>
+          <p class="eyebrow mt-6">Nossa tese</p>
+          <h2 class="section-title">Resgate em transporte público</h2>
+          <p class="lead">A geração de pontos já existe e não é nosso escopo. <strong>Mobilidade Verde adiciona um novo caminho de resgate</strong>: trocar Pontos ECOA por cupom real de transporte (TOP e SPTrans). A Prospera financia o cupom como custo de aquisição (CAC) para a Energia Verde; a operadora recebe o valor cheio.</p>
+        </section>
 
-        <p class="eyebrow mt-6">Como agregamos valor</p>
-        <div class="card mt-5">
-          <div class="value-row"><span class="vr-ico">📈</span><div><b>Volume</b><br>Novo motivo de uso recorrente do app — transporte é diário.</div></div>
-          <div class="value-row"><span class="vr-ico">🔁</span><div><b>Retenção</b><br>Pontos viram benefício tangível e frequente, não esporádico.</div></div>
-          <div class="value-row"><span class="vr-ico">🌍</span><div><b>ESG</b><br>Impacto de CO₂ evitado mensurável e auditável por viagem.</div></div>
-          <div class="value-row"><span class="vr-ico">⚡</span><div><b>Zero CAC extra</b><br>O cupom é o próprio custo de aquisição já previsto pela Prospera.</div></div>
-        </div>
+        <!-- Operadoras -->
+        <section>
+          <p class="eyebrow mt-6">Operadoras parceiras</p>
+          <ul class="grid grid-2 mt-5 maxw-560" role="list">
+            <li>
+              <article class="card center">
+                <span class="op-logo op-logo--top mx-auto" aria-hidden="true">TO</span>
+                <h3 class="mt-3">TOP</h3>
+                <p class="op-meta">Bilhetagem integrada &middot; destaque do MVP</p>
+              </article>
+            </li>
+            <li>
+              <article class="card center">
+                <span class="op-logo op-logo--sptrans mx-auto" aria-hidden="true">SP</span>
+                <h3 class="mt-3">SPTrans</h3>
+                <p class="op-meta">&Ocirc;nibus &middot; S&atilde;o Paulo</p>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Como agregamos valor -->
+        <section>
+          <p class="eyebrow mt-6">Como agregamos valor</p>
+          <div class="card mt-5">
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128200;</span><div><h3>Volume</h3><p>Novo motivo de uso recorrente do app — transporte é diário.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128260;</span><div><h3>Retenção</h3><p>Pontos viram benefício tangível e frequente, não esporádico.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#127757;</span><div><h3>ESG</h3><p>Impacto de CO&#8322; evitado mensurável e auditável por viagem.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#9889;</span><div><h3>Zero CAC extra</h3><p>O cupom é o próprio custo de aquisição já previsto pela Prospera.</p></div></div>
+          </div>
+        </section>
+
+        <!-- Tecnologias (exigido pela rubrica) -->
+        <section>
+          <p class="eyebrow mt-6">Tecnologias utilizadas</p>
+          <h2 class="section-title">Stack do projeto</h2>
+          <div class="card mt-5">
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128196;</span><div><h3>HTML5 semântico</h3><p>Tags <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code> e hierarquia correta de títulos.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#127912;</span><div><h3>CSS puro</h3><p>Flexbox, Grid, variáveis CSS (design tokens), media queries para mobile (até 480px), tablet (≥768px) e desktop (≥992px).</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#9881;</span><div><h3>JavaScript vanilla</h3><p>Manipulação de DOM, eventos, validação de formulário, URLSearchParams e clipboard API — sem nenhum framework.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#127922;</span><div><h3>Tipografia e ícones</h3><p>Google Fonts (Sora + Manrope) via <code>link</code> e ícones em SVG inline para LinkedIn e GitHub.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128205;</span><div><h3>API externa de QR Code</h3><p>Geração visual do cupom via <code>api.qrserver.com</code> usando tag <code>img</code>, sem instalar bibliotecas.</p></div></div>
+          </div>
+        </section>
+
+        <!-- Roadmap (exigido pela rubrica) -->
+        <section>
+          <p class="eyebrow mt-6">Roadmap</p>
+          <h2 class="section-title">Evolução nas Sprints 3 e 4</h2>
+          <div class="card mt-5">
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128274;</span><div><h3>Autenticação e sessão</h3><p>Login real de usuário, cookies seguros e proteção de rotas sensíveis (saldo, resgate).</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128279;</span><div><h3>Integração com API Java</h3><p>Substituição do <code>mock-data.js</code> pelo backend real (camada de dados já espelha o DDL).</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128653;</span><div><h3>Novas operadoras</h3><p>Inclusão de outras bilhetagens (MetrôRio, EMTU etc.) — modelagem já extensível.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#128202;</span><div><h3>Dashboard de impacto</h3><p>Histórico acumulado de CO&#8322; evitado por usuário e meta semanal.</p></div></div>
+            <div class="value-row"><span class="vr-ico" aria-hidden="true">&#127769;</span><div><h3>Tema escuro</h3><p>Tokens já preparados em <code>tokens.css</code> — só falta o switch.</p></div></div>
+          </div>
+        </section>
       </div>
-    </section>
+    </article>
+
   </main>
+
+  <!-- ============ FOOTER · marca + navegação + créditos ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand" style="color:#fff"><span class="brand-mark">M</span> Mobilidade Verde</div>
-          <p style="opacity:.78;margin-top:12px;font-size:.9rem">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
+          <p class="brand color-white">
+            <span class="brand-mark" aria-hidden="true">M</span> Mobilidade Verde
+          </p>
+          <p class="footer-brand-desc">Feature de resgate dentro do ecossistema SoulUp / Prospera. Projeto acadêmico FIAP — Challenge SoulUp 2026.</p>
         </div>
-        <div>
+        <nav aria-label="Rodapé — navegação">
           <h4>Navegação</h4>
-          <ul>
+          <ul role="list">
             <li><a href="index.html">Início</a></li>
             <li><a href="sobre.html">Sobre</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="contato.html">Contato</a></li>
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Rodapé — projeto">
           <h4>Projeto</h4>
-          <ul>
+          <ul role="list">
             <li><a href="integrantes.html">Integrantes</a></li>
             <li><a href="carteira.html">Carteira</a></li>
             <li><a href="resgatar.html">Resgatar</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>Turma 1TDSPX-2026 · FIAP</span>
-        <span>© 2026 Mobilidade Verde — projeto acadêmico</span>
+        <span>&copy; 2026 Mobilidade Verde — projeto acadêmico</span>
       </div>
     </div>
   </footer>
+
   <script src="js/mock-data.js"></script>
   <script src="js/main.js"></script>
 </body>
