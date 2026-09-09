@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TOKENS - Mobilidade Verde (feature SoulUp)
+   Migracao do antigo css/tokens.css para o @theme do Tailwind v4.
+   Cada variavel aqui GERA classes utilitarias:
+     --color-soul-700  ->  bg-soul-700, text-soul-700, border-soul-700
+     --font-display    ->  font-display
+     --breakpoint-lg   ->  redefine o prefixo lg:
+   Turma 1TDSPX-2026 - Challenge SoulUp 2026
+   ============================================================ */
+@theme {
+  /* --- Verde Soul (marca) --- */
+  --color-soul-900: #0a3b2e;
+  --color-soul-700: #11784f;
+  --color-soul-600: #169160;
+  --color-soul-500: #1fa463;
+  --color-soul-300: #7cd9a6;
+  --color-soul-100: #d6f5e3;
+
+  /* --- Ambar ECOA (pontos / valores) --- */
+  --color-ecoa-700: #c98a0e;
+  --color-ecoa-500: #f5b321;
+  --color-ecoa-100: #fdefc8;
+
+  /* --- Azul-transito (so camada de transporte) --- */
+  --color-transito-700: #1366d6;
+  --color-transito-500: #2f84f4;
+  --color-transito-100: #dcebff;
+
+  /* --- Neutros --- */
+  --color-grafite-900: #14211c;
+  --color-grafite-700: #2c3a33;
+  --color-grafite-500: #5b6b63;
+  --color-grafite-300: #a9b7af;
+  --color-linha: #e2ebe5;
+  --color-areia: #f6faf7;
+
+  /* --- Semanticos --- */
+  --color-alerta: #e08a1e;
+  --color-erro: #d64545;
+
+  /* --- Tipografia --- */
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+
+  /* --- Breakpoints alinhados a rubrica do Challenge --- */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+
+  /* --- Sombras --- */
+  --shadow-suave: 0 1px 2px rgba(10, 59, 46, 0.06);
+  --shadow-card: 0 8px 28px rgba(10, 59, 46, 0.09);
+  --shadow-alta: 0 16px 44px rgba(10, 59, 46, 0.16);
+
+  /* --- Raios --- */
+  --radius-suave: 8px;
+  --radius-card: 14px;
+  --radius-grande: 22px;
+  --radius-pilula: 999px;
+}
