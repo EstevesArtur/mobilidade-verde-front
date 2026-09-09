@@ -1,122 +1,69 @@
-import { useState } from "react";
 import { Secao } from "../components/ui/secao";
-import { TituloSecao } from "../components/ui/titulo-secao";
-import { CabecalhoPagina } from "../components/ui/cabecalho-pagina";
 import { Card } from "../components/ui/card";
-import { OperadoraCard } from "../components/mobilidade/operadora-card";
-import { FaixaCard } from "../components/mobilidade/faixa-card";
-import { SaldoCard } from "../components/mobilidade/saldo-card";
-import { TransacaoItem } from "../components/mobilidade/transacao-item";
-import { CupomCard } from "../components/mobilidade/cupom-card";
-import { ImpactoCo2 } from "../components/mobilidade/impacto-co2";
-import { IntegranteCard } from "../components/mobilidade/integrante-card";
-import { FaqItem } from "../components/mobilidade/faq-item";
+import { Badge } from "../components/ui/badge";
+import { BotaoLink } from "../components/ui/botao-link";
+import { TituloSecao } from "../components/ui/titulo-secao";
 import { PassoItem } from "../components/mobilidade/passo-item";
-import { LinhaValor } from "../components/mobilidade/linha-valor";
+import { OperadoraLogo } from "../components/mobilidade/operadora-logo";
 import { OPERADORAS } from "../data/operadoras";
-import { FAIXAS } from "../data/faixas";
-import { TRANSACOES } from "../data/transacoes";
-import { INTEGRANTES } from "../data/integrantes";
-import { PERGUNTAS_FAQ } from "../data/perguntas-faq";
-import { VOUCHERS_INICIAIS } from "../data/vouchers";
-import { USUARIO_ATUAL } from "../data/usuarios";
-import { calcularImpacto } from "../utils/co2";
-import type { VoucherDetalhado } from "../types/voucher";
-
-const CUPOM_DEMO: VoucherDetalhado = {
-  ...VOUCHERS_INICIAIS[2],
-  operadora: OPERADORAS[0],
-  faixa: FAIXAS[2],
-};
+import { PASSOS } from "../data/passos";
 
 export function Home() {
-  const [idOperadora, setIdOperadora] = useState(1);
-  const [idFaixa, setIdFaixa] = useState(2);
-  const [faqAberto, setFaqAberto] = useState(0);
-
   return (
     <>
-      <CabecalhoPagina
-        titulo="Vitrine de domínio"
-        descricao="Tela temporária para validar os 11 componentes de domínio."
-      />
+      <section className="relative overflow-hidden bg-gradient-to-b from-areia to-[#EAF4ED] py-12 md:py-24">
+        <div className="mx-auto grid w-full max-w-[1140px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div>
+            <Badge tom="soul">Feature SoulUp · Pontos ECOA</Badge>
+            <h1 className="font-display mt-4 text-4xl leading-[1.15] font-extrabold tracking-[-0.02em] text-soul-900 md:text-5xl lg:text-[3.8rem]">
+              Seus Pontos ECOA
+              <br />
+              <span className="text-soul-600">viraram passagem.</span>
+            </h1>
+            <p className="mt-4 mb-8 max-w-[52ch] text-lg text-grafite-700">
+              Trocamos seus pontos por cupom real de transporte público, aceito direto pela <strong>TOP</strong> e <strong>SPTrans</strong>. Sem burocracia, com impacto ambiental medido.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <BotaoLink para="/carteira" variante="primario" tamanho="lg">Ver minha carteira</BotaoLink>
+              <BotaoLink para="/sobre" variante="fantasma" tamanho="lg">Como funciona</BotaoLink>
+            </div>
+          </div>
+
+          <aside aria-label="Pré-visualização do app" className="rotate-2 rounded-[30px] bg-gradient-to-br from-soul-900 to-soul-700 p-8 text-white shadow-alta">
+            <p className="text-xs tracking-[0.1em] uppercase opacity-70">Saldo Pontos ECOA</p>
+            <p className="font-display text-5xl font-extrabold">
+              5.000 <span className="text-base font-semibold opacity-80">pts</span>
+            </p>
+            <div className="mt-6 rounded-card border border-dashed border-white/40 bg-white/10 p-4 text-center">
+              <p className="text-xs tracking-[0.1em] uppercase opacity-70">Cupom TOP gerado</p>
+              <p className="font-display mt-1 text-lg font-bold tracking-[0.14em]">TOP-A7B3-X9K2</p>
+            </div>
+          </aside>
+        </div>
+      </section>
 
       <Secao>
-        <TituloSecao sobretitulo="Home" titulo="Passos" />
-        <ol className="grid gap-6 md:grid-cols-3">
-          <PassoItem numero={1} titulo="Veja seu saldo" descricao="Abra a carteira e confira seus Pontos ECOA." />
-          <PassoItem numero={2} titulo="Escolha operadora e faixa" descricao="TOP ou SPTrans, de R$2 a R$20." />
-          <PassoItem numero={3} titulo="Use o cupom" descricao="Receba o código e o QR e aplique no app." />
+        <TituloSecao sobretitulo="Em 3 passos" titulo="Do saldo ao embarque" centralizado />
+        <ol className="grid gap-8 md:grid-cols-3">
+          {PASSOS.map((passo) => (
+            <PassoItem key={passo.numero} numero={passo.numero} titulo={passo.titulo} descricao={passo.descricao} />
+          ))}
         </ol>
+      </Secao>
 
-        <TituloSecao sobretitulo="Resgatar" titulo="Operadora e faixa" className="mt-16" />
-        <ul className="grid gap-6 md:grid-cols-2">
-          {OPERADORAS.map((operadora) => (
-            <li key={operadora.id_operadora}>
-              <OperadoraCard
-                operadora={operadora}
-                selecionada={operadora.id_operadora === idOperadora}
-                onSelecionar={(item) => setIdOperadora(item.id_operadora)}
-              />
-            </li>
-          ))}
-        </ul>
-        <ul className="mt-6 grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {FAIXAS.map((faixa) => (
-            <li key={faixa.id_faixa}>
-              <FaixaCard
-                faixa={faixa}
-                selecionada={faixa.id_faixa === idFaixa}
-                desabilitada={faixa.pontos_necessarios > USUARIO_ATUAL.saldo_pontos}
-                onSelecionar={(item) => setIdFaixa(item.id_faixa)}
-              />
-            </li>
-          ))}
-        </ul>
-
-        <TituloSecao sobretitulo="Carteira" titulo="Saldo e histórico" className="mt-16" />
-        <SaldoCard nome={USUARIO_ATUAL.nome} saldo={USUARIO_ATUAL.saldo_pontos} />
-        <Card className="mt-6">
-          <ul>
-            {TRANSACOES.slice(0, 3).map((transacao) => (
-              <TransacaoItem key={transacao.id_transacao} transacao={transacao} />
+      <Secao estreita>
+        <Card centralizado>
+          <p className="font-display text-xs font-extrabold tracking-[0.14em] text-soul-600 uppercase">Operadoras parceiras no MVP</p>
+          <h2 className="font-display mt-2 mb-8 text-3xl font-bold text-soul-900 md:text-4xl">Aceito onde você anda</h2>
+          <ul className="mx-auto grid max-w-[560px] grid-cols-2 gap-6">
+            {OPERADORAS.map((operadora) => (
+              <li key={operadora.id_operadora}>
+                <OperadoraLogo nome={operadora.nome} tamanho="lg" className="mx-auto" />
+                <p className="mt-2 font-bold">{operadora.nome}</p>
+              </li>
             ))}
           </ul>
-        </Card>
-
-        <TituloSecao sobretitulo="Cupom" titulo="Tela-estrela" className="mt-16" />
-        <div className="mx-auto max-w-[620px]">
-          <CupomCard voucher={CUPOM_DEMO} />
-          <div className="mt-6">
-            <ImpactoCo2 impacto={calcularImpacto(OPERADORAS[0], FAIXAS[2])} />
-          </div>
-        </div>
-
-        <TituloSecao sobretitulo="Integrantes" titulo="Equipe FOG" className="mt-16" />
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {INTEGRANTES.slice(0, 3).map((integrante) => (
-            <li key={integrante.rm}>
-              <IntegranteCard integrante={integrante} />
-            </li>
-          ))}
-        </ul>
-
-        <TituloSecao sobretitulo="FAQ e Sobre" titulo="Acordeão e linhas" className="mt-16" />
-        <Card>
-          {PERGUNTAS_FAQ.slice(0, 3).map((item) => (
-            <FaqItem
-              key={item.id}
-              id={item.id}
-              pergunta={item.pergunta}
-              resposta={item.resposta}
-              aberto={faqAberto === item.id}
-              onAlternar={(id) => setFaqAberto(faqAberto === id ? 0 : id)}
-            />
-          ))}
-        </Card>
-        <Card className="mt-6">
-          <LinhaValor icone="📈" titulo="Volume" descricao="Novo motivo de uso recorrente do app." />
-          <LinhaValor icone="🌍" titulo="ESG" descricao="Impacto de CO₂ evitado mensurável por viagem." />
+          <BotaoLink para="/carteira" variante="transito" className="mt-8">Começar resgate</BotaoLink>
         </Card>
       </Secao>
     </>
