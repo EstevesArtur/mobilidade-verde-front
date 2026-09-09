@@ -13,7 +13,7 @@ export function Layout() {
   }, [pathname]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-areia font-body text-grafite-700">
+    <div className="flex min-h-screen flex-col bg-areia font-body leading-relaxed text-grafite-900">
       <Header />
       <main className="flex-1">
         <Outlet />
