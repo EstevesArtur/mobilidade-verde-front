@@ -51,5 +51,6 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/yan.jpg",
     linkedin: "https://br.linkedin.com/in/yan-de-almeida-cardoso-2210372ba",
     github: "https://github.com/YanAlmeidaC",
+    funcao: "IA & Chatbot",
   },
 ];
