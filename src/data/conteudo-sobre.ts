@@ -14,9 +14,7 @@ export const COMO_AGREGAMOS_VALOR: ItemValor[] = [
 ];
 
 export const STACK: ItemValor[] = [
-  { icone: "⚛️", titulo: "React + Vite + TypeScript", descricao: "SPA componentizada, com tipagem estática em componentes, props e dados." },
-  { icone: "🎨", titulo: "TailwindCSS v4", descricao: "Estilização por classes utilitárias, com a paleta SoulUp e as fontes no @theme. Zero CSS externo." },
-  { icone: "🧭", titulo: "React Router DOM", descricao: "Navegação sem recarregar a página, com layout compartilhado, rotas estáticas e rotas dinâmicas." },
+  { icone: "⚛️", titulo: "React 19 + Vite 8 + TypeScript 6", descricao: "SPA componentizada, com tipagem estática em componentes, props e dados." }, { icone: "🎨", titulo: "TailwindCSS 4.3", descricao: "Estilização por classes utilitárias, com a paleta SoulUp e as fontes declaradas no @theme. Zero CSS externo." }, { icone: "🧭", titulo: "React Router DOM 7.18", descricao: "Navegação sem recarregar a página, com layout compartilhado, rotas estáticas e rotas dinâmicas." },
   { icone: "📝", titulo: "React Hook Form", descricao: "Formulário de contato com validação e mensagens de erro tipadas." },
   { icone: "🔤", titulo: "Tipografia e ícones", descricao: "Google Fonts (Sora + Manrope) e ícones em SVG inline para LinkedIn e GitHub." },
   { icone: "📍", titulo: "API externa de QR Code", descricao: "Geração visual do cupom via api.qrserver.com usando tag img, sem instalar bibliotecas." },
