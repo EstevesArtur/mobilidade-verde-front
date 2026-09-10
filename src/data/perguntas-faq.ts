@@ -16,8 +16,7 @@ export const PERGUNTAS_FAQ: PerguntaFaq[] = [
   {
     id: 3,
     pergunta: "Em quais operadoras posso usar?",
-    resposta:
-      "No MVP, TOP (destaque) e SPTrans. A modelagem já está pronta para novas operadoras nas próximas sprints.",
+    resposta: "No MVP, TOP (destaque) e SPTrans. Nas duas a passagem custa R$ 4,40. A modelagem já está pronta para receber novas operadoras nas próximas sprints.",
   },
   {
     id: 4,
