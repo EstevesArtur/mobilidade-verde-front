@@ -11,6 +11,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/diego.jpg",
     linkedin: "https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321",
     github: "https://github.com/DiegoRodri1",
+    funcao: "PREENCHER",
   },
   {
     nome: "Artur Esteves",
