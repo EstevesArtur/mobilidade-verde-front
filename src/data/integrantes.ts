@@ -41,6 +41,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/vinicius.jpg",
     linkedin: "https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/",
     github: "https://github.com/viniciuspr27",
+    funcao: "PREENCHER",
   },
   {
     nome: "Yan Almeida",
