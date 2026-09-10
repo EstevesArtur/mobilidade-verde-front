@@ -28,4 +28,5 @@ export const ROADMAP: ItemValor[] = [
   { icone: "☁️", titulo: "Deploy na Vercel", descricao: "Publicação da aplicação consumindo remotamente a API, exigida na Sprint 4." },
   { icone: "🚌", titulo: "Novas operadoras", descricao: "Inclusão de outras bilhetagens (MetrôRio, EMTU) — a modelagem já é extensível." },
   { icone: "📊", titulo: "Dashboard de impacto", descricao: "Histórico acumulado de CO₂ evitado por usuário e meta semanal." },
+  { icone: "🤝", titulo: "Inclusão social", descricao: "Transporte é despesa fixa e diária de quem menos pode pagar. O cupom vira alívio real de orçamento, não brinde." },
 ];
