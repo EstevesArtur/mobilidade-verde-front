@@ -77,6 +77,7 @@ export function OperadoraDetalhe() {
               {operadora.featured && <Badge tom="soul">Destaque</Badge>}
             </h1>
             <p className="mt-2 text-grafite-500">{operadora.cidade} · modal {operadora.modal.toLowerCase()}</p>
+            {operadora.descricao && <p className="mt-3 max-w-[60ch] text-grafite-700">{operadora.descricao}</p>}
           </div>
         </div>
 

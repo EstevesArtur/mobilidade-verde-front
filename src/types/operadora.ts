@@ -14,4 +14,5 @@ export interface Operadora {
   formato_codigo: string;
   ativo: FlagAtivo;
   featured: boolean;
+  descricao?: string;
 }

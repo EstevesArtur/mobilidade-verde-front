@@ -43,6 +43,7 @@ export function IntegranteCard({ integrante }: IntegranteCardProps) {
       <h3 className="font-display text-lg font-bold text-soul-900">{integrante.nome}</h3>
       <p className="mt-0.5 text-sm text-grafite-500">{integrante.rm}</p>
       <p className="mt-2 text-xs font-bold text-soul-600">Turma {integrante.turma}</p>
+      {integrante.funcao && <p className="mt-1 text-xs text-grafite-500">{integrante.funcao}</p>}
 
       <Badge tom={tomBadge} className="mt-3">{rotuloBadge}</Badge>
 

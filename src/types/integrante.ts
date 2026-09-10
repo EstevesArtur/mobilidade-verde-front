@@ -7,4 +7,5 @@ export interface Integrante {
   foto: string;
   linkedin: string;
   github: string;
+  funcao?: string;
 }
