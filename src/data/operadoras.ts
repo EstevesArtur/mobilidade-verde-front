@@ -13,6 +13,7 @@ export const OPERADORAS: Operadora[] = [
     formato_codigo: "TOP-XXXX-XXXX",
     ativo: "S",
     featured: true,
+     descricao: "Operadora de bilhetagem integrada do Rio de Janeiro, com modal misto (ônibus, BRT e barcas). É a parceira de destaque do MVP e a primeira com integração de cupom validada.",
   },
   {
     id_operadora: 2,
