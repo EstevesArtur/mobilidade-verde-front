@@ -9,7 +9,7 @@ export interface ItemValor {
 export const COMO_AGREGAMOS_VALOR: ItemValor[] = [
   { icone: "📈", titulo: "Volume", descricao: "Novo motivo de uso recorrente do app — transporte é diário." },
   { icone: "🔄", titulo: "Retenção", descricao: "Pontos viram benefício tangível e frequente, não esporádico." },
-  { icone: "🌍", titulo: "ESG", descricao: "Impacto de CO₂ evitado mensurável e auditável por viagem." },
+  { icone: "🌍", titulo: "ESG", descricao: "Cada viagem de 7 km evita cerca de 0,69 kg de CO₂, calculado por cupom e auditável — não é estimativa de marketing." },
   { icone: "⚡", titulo: "Zero CAC extra", descricao: "O cupom é o próprio custo de aquisição já previsto pela Prospera." },
 ];
 
