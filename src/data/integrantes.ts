@@ -11,7 +11,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/diego.jpg",
     linkedin: "https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321",
     github: "https://github.com/DiegoRodri1",
-    funcao: "PREENCHER",
+    funcao: "Banco de Dados",
   },
   {
     nome: "Artur Esteves",
@@ -31,7 +31,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/joao.jpg",
     linkedin: "https://www.linkedin.com/in/jo%C3%A3o-fontenele-65b1913a8/",
     github: "https://github.com/joaofontenele06",
-    funcao: "PREENCHER",
+    funcao: "Java",
   },
   {
     nome: "Vinicius Pacheco",
@@ -41,7 +41,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/vinicius.jpg",
     linkedin: "https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/",
     github: "https://github.com/viniciuspr27",
-    funcao: "PREENCHER",
+    funcao: "Python",
   },
   {
     nome: "Yan Almeida",
