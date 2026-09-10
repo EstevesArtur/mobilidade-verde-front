@@ -38,8 +38,7 @@ export const PERGUNTAS_FAQ: PerguntaFaq[] = [
   {
     id: 7,
     pergunta: "E se eu não usar o cupom?",
-    resposta:
-      "Cupom expirado muda de status e não debita novamente — o controle de status protege o usuário e o sistema.",
+    resposta: "Depois de 24 horas o cupom passa para o status EXPIRADO e deixa de valer. Os seus pontos não são debitados de novo: o débito acontece uma única vez, no momento em que o cupom é gerado.",
   },
   {
     id: 8,
