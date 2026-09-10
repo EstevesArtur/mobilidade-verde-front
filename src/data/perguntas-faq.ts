@@ -53,4 +53,5 @@ export const PERGUNTAS_FAQ: PerguntaFaq[] = [
     id: 9, pergunta: "Existe limite de cupons por usuário?",
     resposta: "Sim. Cada usuário pode gerar no máximo 5 cupons por dia. O limite conta cupons GERADOS, não utilizados, e existe para impedir que alguém drene a carteira em massa.",
   },
+  { id: 10, pergunta: "Como vocês calculam o CO₂ evitado?", resposta: "Comparamos o que o carro emitiria com o que o ônibus emite: 0,180 kg/km segundo o MMA contra 0,082 kg/km segundo a ANTP. A diferença, 0,098 kg por km, é o que você deixa de emitir ao trocar o carro pelo transporte público.", },
 ];
