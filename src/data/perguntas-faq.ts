@@ -49,4 +49,8 @@ export const PERGUNTAS_FAQ: PerguntaFaq[] = [
     resposta:
       "Cada cupom tem código único e hash de validação, vínculo a um único usuário, status controlado e log imutável de transações.",
   },
+  {
+    id: 9, pergunta: "Existe limite de cupons por usuário?",
+    resposta: "Sim. Cada usuário pode gerar no máximo 5 cupons por dia. O limite conta cupons GERADOS, não utilizados, e existe para impedir que alguém drene a carteira em massa.",
+  },
 ];
