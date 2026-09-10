@@ -22,8 +22,7 @@ export const PERGUNTAS_FAQ: PerguntaFaq[] = [
   {
     id: 4,
     pergunta: "Quanto vale 1 Ponto ECOA?",
-    resposta:
-      "A conversão é por faixa fixa: R$2 = 200 pts, R$5 = 500 pts, R$10 = 1.000 pts, R$20 = 2.000 pts.",
+    resposta: "A cotação é de 100 Pontos ECOA para cada R$ 1,00. Na prática, a troca acontece por faixa fixa: R$2 = 200 pts, R$5 = 500 pts, R$10 = 1.000 pts e R$20 = 2.000 pts.",
   },
   {
     id: 5,
