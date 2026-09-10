@@ -98,7 +98,7 @@ export function CupomCard({ voucher }: CupomCardProps) {
         <p className="font-display text-xs font-extrabold tracking-[0.14em] text-soul-600 uppercase">
           Seu código de cupom
         </p>
-        <p className="font-display mt-3 rounded-card border-2 border-dashed border-soul-300 bg-areia p-6 text-[clamp(1.8rem,6vw,3rem)] leading-tight font-extrabold tracking-[0.18em] break-all text-soul-900">
+        <p className="font-display mt-3 rounded-card border-2 border-dashed border-soul-300 bg-areia p-6 text-[clamp(1.4rem,5vw,2.4rem)] leading-tight font-extrabold tracking-[0.18em] break-all text-soul-900">
           {voucher.codigo}
         </p>
 

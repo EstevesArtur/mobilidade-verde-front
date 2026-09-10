@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Secao } from "../components/ui/secao";
-import { Card } from "../components/ui/card";
 import { Botao } from "../components/ui/botao";
 import { Carregando } from "../components/ui/carregando";
 import { OperadoraCard } from "../components/mobilidade/operadora-card";
@@ -119,7 +118,7 @@ export function Resgatar() {
             </ul>
 
             {faixaSelecionada && (
-              <Card plano className="mt-8 border-0 bg-soul-100">
+              <div className="mt-8 rounded-grande bg-soul-100 p-6 shadow-suave sm:p-8">
                 <p>
                   Gerar cupom <strong>{fmtReais(faixaSelecionada.valor_centavos)}</strong> da <strong>{operadoraSelecionada.nome}</strong> por{" "}
                   <strong>{fmtPontos(faixaSelecionada.pontos_necessarios)} Pontos ECOA</strong>. Saldo após resgate:{" "}
@@ -131,7 +130,7 @@ export function Resgatar() {
                 <Botao variante="primario" tamanho="lg" className="mt-6" disabled={gerando} onClick={confirmar}>
                   {gerando ? "Gerando cupom..." : "Gerar cupom"}
                 </Botao>
-              </Card>
+              </div>
             )}
           </section>
         )}
