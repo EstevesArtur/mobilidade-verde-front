@@ -25,4 +25,5 @@ export const ROADMAP: ItemValor[] = [
   { icone: "🚌", titulo: "Novas operadoras", descricao: "Inclusão de outras bilhetagens (MetrôRio, EMTU) — a modelagem já é extensível." },
   { icone: "📊", titulo: "Dashboard de impacto", descricao: "Histórico acumulado de CO₂ evitado por usuário e meta semanal." },
   { icone: "🤝", titulo: "Inclusão social", descricao: "Transporte é despesa fixa e diária de quem menos pode pagar. O cupom vira alívio real de orçamento, não brinde." },
+  { icone: "🧾", titulo: "Histórico de viagens", descricao: "Registro de cada viagem na tabela T_VIAGEM, com km e CO₂ evitado acumulados por usuário." },
 ];
