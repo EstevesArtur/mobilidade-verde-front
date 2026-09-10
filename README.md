@@ -1,191 +1,262 @@
 # 🌱 Mobilidade Verde
 
-> **Seus Pontos ECOA viraram passagem.**
-> Feature de **resgate** dentro do ecossistema SoulUp / Prospera: troca de Pontos ECOA por cupom real de transporte público (TOP e SPTrans).
+**Troque seus Pontos ECOA por cupom real de transporte público.**
 
-Projeto acadêmico desenvolvido para o **Challenge SoulUp 2026** — FIAP, 1º ano de Análise e Desenvolvimento de Sistemas.
+Mobilidade Verde é uma feature dentro da **SoulUp** (grupo Prospera), rede social e programa de fidelidade onde o usuário acumula **Pontos ECOA** — moeda digital verde lastreada em créditos de carbono e energia limpa.
 
-🔗 **Repositório público:** https://github.com/EstevesArtur/mobilidade-verde-front
+A geração de pontos já existe na plataforma e está fora do nosso escopo. O que este projeto entrega é o **caminho de resgate**: transformar Pontos ECOA em cupom de transporte público aceito pelas operadoras parceiras, **TOP** e **SPTrans**.
 
----
+O usuário abre a carteira, vê o saldo, escolhe a operadora e a faixa de valor, e recebe na hora um cupom com código único, QR Code e validade de 24 horas — junto com o cálculo de quanto CO₂ aquela viagem deixa de emitir.
 
-## 👥 Integrantes — Turma 1TDSPX-2026
+> **Challenge SoulUp 2026 · FIAP · Sprint 3 · Front-End Design Engineering**
+> Turma **1TDSPX-2026** — 1º ano de Análise e Desenvolvimento de Sistemas
 
-| Nome | RM | Papel | LinkedIn | GitHub |
-|---|---|---|---|---|
-| Diego Barbosa | RM568829 | Integrante | [@diego-barbosa-rodrigues](https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321) | [@DiegoRodri1](https://github.com/DiegoRodri1) |
-| **Artur Esteves** | **RM569450** | **★ Representante** | [@artur-esteves](https://www.linkedin.com/in/artur-esteves-31bb4130a/) | [@EstevesArtur](https://github.com/EstevesArtur) |
-| João Fontenele | RM570783 | Integrante | [@joão-fontenele](https://www.linkedin.com/in/jo%C3%A3o-fontenele-65b1913a8/) | [@joaofontenele06](https://github.com/joaofontenele06) |
-| Vinicius Pacheco | RM571109 | Integrante | [@vinicius-pacheco-ruiz](https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/) | [@viniciuspr27](https://github.com/viniciuspr27) |
-| Yan Almeida | RM568814 | Integrante | [@yan-almeida-cardoso](https://br.linkedin.com/in/yan-de-almeida-cardoso-2210372ba) | [@YanAlmeidaC](https://github.com/YanAlmeidaC) |
+**🎥 Vídeo de demonstração:** https://youtu.be/l_q2khj1rLI
+**📦 Repositório:** https://github.com/EstevesArtur/mobilidade-verde-front
 
 ---
 
-## 🎯 Tese central
+## 📸 O projeto
 
-A geração de Pontos ECOA já existe na SoulUp e **não é nosso escopo**. A Mobilidade Verde
-adiciona um **novo caminho de resgate**: o usuário converte seus pontos em cupom real de
-transporte público. A Prospera financia o cupom como custo de aquisição (CAC) para a
-Energia Verde; a operadora recebe o valor cheio. O impacto de CO₂ evitado é mensurável
-e auditável por viagem.
+### Home
+![Home do Mobilidade Verde](public/img/screenshots/01-index.png)
 
-Caminho desenhado pelo front:
+### Carteira — saldo, cupons e histórico
+![Carteira com saldo de Pontos ECOA](public/img/screenshots/02-carteira.png)
 
-```
-carteira.html  →  resgatar.html  →  cupom.html
-(ver saldo)       (operadora+faixa)  (código + QR + impacto)
-```
+### Resgate — escolha de operadora e faixa
+![Tela de resgate](public/img/screenshots/03-resgatar.png)
 
-Conversão Pontos ECOA → Real (por faixa fixa):
-
-| Faixa | Pontos ECOA |
-|---|---|
-| R$ 2,00 | 200 pts |
-| R$ 5,00 | 500 pts |
-| R$ 10,00 | 1.000 pts |
-| R$ 20,00 | 2.000 pts |
-
----
-
-## 🖼️ Prints do projeto
-
-### Página inicial
-![Home — hero, 3 passos e operadoras parceiras](img/screenshots/01-index.png)
-
-### Carteira (saldo + histórico)
-![Carteira — saldo de Pontos ECOA e movimentações](img/screenshots/02-carteira.png)
-
-### Resgate (operadora + faixa)
-![Resgatar — escolher operadora TOP/SPTrans e faixa de valor](img/screenshots/03-resgatar.png)
-
-### Cupom (tela-estrela)
-![Cupom — código, QR, validade e impacto de CO₂](img/screenshots/04-cupom.png)
+### Cupom — código, QR e impacto ambiental
+![Cupom gerado com QR Code](public/img/screenshots/04-cupom.png)
 
 ### Integrantes
-![Integrantes — 5 cards com foto, RM e redes sociais](img/screenshots/05-integrantes.png)
+![Página de integrantes](public/img/screenshots/05-integrantes.png)
 
 ### Sobre
-![Sobre — contexto, tese, tecnologias e roadmap](img/screenshots/06-sobre.png)
+![Página sobre o projeto](public/img/screenshots/06-sobre.png)
 
----
-
-## 🗂️ Estrutura de pastas
-
-```
-mobilidade-verde-front/
-├── index.html            # Hero + 3 passos + credibilidade
-├── sobre.html            # Contexto + tese + tecnologias + roadmap
-├── integrantes.html      # 5 cards (nome, foto, RM, turma, LinkedIn, GitHub)
-├── faq.html              # 8 perguntas em acordeão acessível
-├── contato.html          # Formulário validado + espaço do chatbot
-├── carteira.html         # Saldo ECOA + histórico (Passo 1-2)
-├── resgatar.html         # Operadora + faixa + confirmação (Passo 3-5)
-├── cupom.html            # Código + QR + validade + impacto (Passo 6-7)
-├── css/
-│   ├── reset.css         # Normalização e foco acessível
-│   ├── tokens.css        # Design tokens (paleta SoulUp + tipografia)
-│   ├── layout.css        # Grid, header sticky, footer, breakpoints
-│   ├── components.css    # Botões, cards, cupom, carteira, formulário
-│   └── utilities.css     # Classes utilitárias (espaçamento, cor, tipografia)
-├── js/
-│   ├── mock-data.js      # Dados espelhando o DDL do banco
-│   ├── main.js           # Nav mobile, acordeão FAQ, validação, reveal
-│   ├── carteira.js       # Renderiza saldo + histórico de transações
-│   ├── resgatar.js       # Fluxo operadora → faixa → cupom
-│   └── cupom.js          # Código, QR via API, contagem regressiva, CO₂
-├── img/
-│   ├── integrantes/      # Fotos dos 5 integrantes
-│   ├── screenshots/      # Prints das telas (referenciados aqui)
-│   ├── top.svg           # Logo mockado TOP
-│   └── sptrans.svg       # Logo mockado SPTrans
-└── README.md
-```
-
----
-
-## ▶️ Como rodar
-
-Não há build nem dependências. Basta:
-
-```bash
-git clone https://github.com/EstevesArtur/mobilidade-verde-front.git
-cd mobilidade-verde-front
-# abrir index.html no navegador
-```
-
-> Dica: para testar a navegação por querystring (`cupom.html`), sirva localmente:
-> `python3 -m http.server 8080` e acesse `http://localhost:8080`.
+### Responsividade — 480px
+![Layout mobile em 480px](public/img/screenshots/07-mobile.png)
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-- **HTML5** semântico (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`)
-- **CSS3** puro (Flexbox, Grid, variáveis CSS, media queries para mobile/tablet/desktop)
-- **JavaScript** vanilla (manipulação de DOM, eventos, `URLSearchParams`, Clipboard API)
-- **Google Fonts** via `<link>` (Sora + Manrope)
-- **API externa de QR Code** via `<img>` (`api.qrserver.com`)
-- **Ícones SVG inline** (LinkedIn e GitHub, sem dependências externas)
+| Tecnologia | Versão | Papel no projeto |
+|---|---|---|
+| **React** | 19.2 | Biblioteca de interface, componentes funcionais e hooks |
+| **Vite** | 8.2 | Build e servidor de desenvolvimento |
+| **TypeScript** | 6.0 | Tipagem estática de componentes, props e dados |
+| **TailwindCSS** | 4.3 | Estilização por classes utilitárias, sem CSS externo |
+| **React Router DOM** | 7.18 | SPA com layout compartilhado, rotas estáticas e dinâmicas |
+| **React Hook Form** | 7.87 | Formulário de contato com validação e tipagem |
+| **Google Fonts** | — | Sora (títulos) e Manrope (corpo) |
+| **API QR Server** | — | Geração do QR Code do cupom, via tag `img` |
 
-### ⚠️ ZERO framework usado
+**Hooks utilizados:** `useState`, `useEffect`, `useParams`, `useNavigate`, `useLocation`.
 
-Não há React, Vue, Angular, Bootstrap, Tailwind, jQuery, Sass ou qualquer
-biblioteca de terceiros. Todo o CSS e JS é autoral e pode ser auditado
-arquivo por arquivo.
+**Sem bibliotecas de UI e sem cliente HTTP externo.** Nenhum Bootstrap, Material UI ou Axios. Toda a identidade visual é construída com classes Tailwind sobre os tokens da paleta SoulUp.
 
----
+### Identidade visual
 
-## 📱 Responsividade
+| Camada | Cor | Uso |
+|---|---|---|
+| Verde Soul | `#0A3B2E` → `#D6F5E3` | marca, superfícies, textos |
+| Âmbar ECOA | `#C98A0E` → `#FDEFC8` | pontos, valores, destaques |
+| Azul-trânsito | `#1366D6` → `#DCEBFF` | exclusivo da camada de transporte |
 
-Breakpoints alinhados com a rubrica oficial do Challenge:
+Os tokens de cor, as fontes e os breakpoints são declarados no bloco `@theme` do `src/index.css`, o arquivo de entrada oficial do Tailwind v4.
 
-- **Mobile:** até 480px — layout em coluna única, menu hambúrguer
-- **Tablet:** ≥ 768px — grids de 2 colunas, espaçamento intermediário
-- **Desktop:** ≥ 992px — layout completo com 3-4 colunas
+### Responsividade
 
----
+Os breakpoints do tema foram redefinidos para corresponder exatamente aos exigidos no projeto:
 
-## 🎨 Identidade visual
-
-Paleta ancorada na marca real **SoulUp / Prospera**:
-
-- **Verde Soul** — núcleo da marca sustentável (CTAs, marca)
-- **Âmbar ECOA** — moeda Pontos ECOA / Selo Verde (saldo, valores)
-- **Azul-trânsito** — única cor de inovação, escopo restrito à camada de
-  transporte (operadoras, trilha de resgate, cupom)
-
-Tipografia: **Sora** (display) + **Manrope** (corpo).
-
----
-
-## 🔗 Integração com o restante do produto
-
-`mock-data.js` espelha os nomes de campo do DDL
-(`mobilidade_verde_ddl.sql`) — `id_usuario`, `saldo_pontos`, `id_operadora`,
-`valor_centavos`, `pontos_necessarios`, `codigo`, `status`, `expira_em` etc.
-Isso prepara o front para consumir a API real (Java) nas Sprints 3-4 sem
-reescrever a camada de dados.
+| Faixa | Prefixo Tailwind | Largura |
+|---|---|---|
+| Mobile | *(padrão)* | até 480px |
+| Tablet | `md:` | 768px |
+| Desktop | `lg:` | 992px ou mais |
 
 ---
 
-## 🚀 Roadmap (Sprints 3-4)
+## 📁 Estrutura de pastas
 
-- Consumo de API real (Java) substituindo `mock-data.js`
-- Autenticação de usuário e sessão
-- Novas operadoras (modelagem já extensível)
-- Histórico de viagens e dashboard de impacto acumulado
-- Tema escuro (tokens já preparados em `tokens.css`)
+mobilidade-verde-front/
+├── public/
+│ └── img/
+│ ├── integrantes/ # fotos dos 5 integrantes
+│ ├── screenshots/ # capturas usadas neste README
+│ ├── top.svg
+│ └── sptrans.svg
+├── src/
+│ ├── components/
+│ │ ├── layout/ # Header, Footer, Layout
+│ │ ├── ui/ # Botao, Card, Badge, Secao, CampoErro...
+│ │ └── mobilidade/ # componentes de domínio do resgate
+│ ├── pages/ # uma página por rota
+│ ├── data/ # conteúdo e dados simulados
+│ ├── types/ # interfaces espelhando o modelo do banco
+│ ├── services/ # acesso aos dados (vira API na Sprint 4)
+│ ├── utils/ # formatação e cálculo de CO₂
+│ ├── App.tsx # declaração de todas as rotas
+│ ├── main.tsx # ponto de entrada
+│ └── index.css # ÚNICO arquivo CSS: entrypoint do Tailwind
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+
+
+### Rotas
+
+| Rota | Página | Tipo |
+|---|---|---|
+| `/` | Home | estática |
+| `/sobre` | Sobre | estática |
+| `/integrantes` | Integrantes | estática |
+| `/faq` | Perguntas frequentes | estática |
+| `/contato` | Contato | estática |
+| `/carteira` | Carteira ECOA | estática |
+| `/resgatar` | Resgate de cupom | estática |
+| `/cupom/:codigo` | Cupom | **dinâmica** |
+| `/operadoras/:idOperadora` | Detalhe da operadora | **dinâmica** |
+| `*` | Página não encontrada | fallback |
+
+### Coerência com o modelo de dados
+
+As interfaces em `src/types/` espelham as tabelas do modelo relacional do grupo. As constraints `CHECK` do banco viraram *union types* no TypeScript:
+
+```ts
+type StatusVoucher = "GERADO" | "UTILIZADO" | "EXPIRADO" | "CANCELADO";
+type Modal = "ONIBUS" | "METRO" | "TREM" | "MISTO" | "BRT";
+```
+
+Campos sensíveis do banco — `hash_senha`, `cpf_hash`, `hash_validacao` e `ip_origem` — **não são expostos no front-end** por decisão de segurança.
+
+### Cálculo de impacto ambiental
+
+O CO₂ evitado é a diferença entre o que o carro emitiria e o que o ônibus emite:
+
+CO₂ evitado = km × (0,180 do carro − 0,082 do ônibus)
+
+
+Fontes: **0,180 kg/km** para automóvel (MMA) e **0,082 kg/km** para ônibus urbano (ANTP). A equivalência em árvores usa a absorção média de **21,77 kg de CO₂ por ano**.
+
+---
+
+## 👥 Autores
+
+Equipe **FOG** · Turma **1TDSPX-2026** · FIAP · 1º ano de Análise e Desenvolvimento de Sistemas
+
+<table>
+  <tr>
+    <td align="center" width="20%">
+      <img src="public/img/integrantes/diego.jpg" width="90" style="border-radius:50%" alt="Foto de Diego Barbosa"><br>
+      <b>Diego Barbosa</b><br>
+      RM568829<br>
+      <sub>1TDSPX-2026</sub><br>
+      <sub>Banco de Dados</sub><br><br>
+      <a href="https://www.linkedin.com/in/diego-barbosa-rodrigues-a60677321">LinkedIn</a> ·
+      <a href="https://github.com/DiegoRodri1">GitHub</a>
+    </td>
+    <td align="center" width="20%">
+      <img src="public/img/integrantes/artur.jpg" width="90" style="border-radius:50%" alt="Foto de Artur Esteves"><br>
+      <b>Artur Esteves</b> ⭐<br>
+      RM569450<br>
+      <sub>1TDSPX-2026</sub><br>
+      <sub>Front-End · <b>Representante</b></sub><br><br>
+      <a href="https://www.linkedin.com/in/artur-esteves-31bb4130a/">LinkedIn</a> ·
+      <a href="https://github.com/EstevesArtur">GitHub</a>
+    </td>
+    <td align="center" width="20%">
+      <img src="public/img/integrantes/joao.jpg" width="90" style="border-radius:50%" alt="Foto de João Fontenele"><br>
+      <b>João Fontenele</b><br>
+      RM570783<br>
+      <sub>1TDSPX-2026</sub><br>
+      <sub>Java</sub><br><br>
+      <a href="https://www.linkedin.com/in/jo%C3%A3o-fontenele-65b1913a8/">LinkedIn</a> ·
+      <a href="https://github.com/joaofontenele06">GitHub</a>
+    </td>
+    <td align="center" width="20%">
+      <img src="public/img/integrantes/vinicius.jpg" width="90" style="border-radius:50%" alt="Foto de Vinicius Pacheco"><br>
+      <b>Vinicius Pacheco</b><br>
+      RM571109<br>
+      <sub>1TDSPX-2026</sub><br>
+      <sub>Python</sub><br><br>
+      <a href="https://www.linkedin.com/in/vinicius-pacheco-ruiz-66026033b/">LinkedIn</a> ·
+      <a href="https://github.com/viniciuspr27">GitHub</a>
+    </td>
+    <td align="center" width="20%">
+      <img src="public/img/integrantes/yan.jpg" width="90" style="border-radius:50%" alt="Foto de Yan Almeida"><br>
+      <b>Yan Almeida</b><br>
+      RM568814<br>
+      <sub>1TDSPX-2026</sub><br>
+      <sub>IA & Chatbot</sub><br><br>
+      <a href="https://br.linkedin.com/in/yan-de-almeida-cardoso-2210372ba">LinkedIn</a> ·
+      <a href="https://github.com/YanAlmeidaC">GitHub</a>
+    </td>
+  </tr>
+</table>
+
+⭐ **Artur Esteves — RM569450 — Representante do grupo**
+
+---
+
+## 🚀 Como usar
+
+**Repositório:** https://github.com/EstevesArtur/mobilidade-verde-front
+**Vídeo de demonstração no YouTube:** https://youtu.be/l_q2khj1rLI
+
+### Pré-requisitos
+
+- **Node.js 20.19 ou superior** (verifique com `node -v`)
+- npm (instalado junto com o Node)
+
+### Rodando localmente
+
+```bash
+git clone https://github.com/EstevesArtur/mobilidade-verde-front.git
+cd mobilidade-verde-front
+npm install
+npm run dev
+```
+
+Acesse **http://localhost:5173**.
+
+### Scripts disponíveis
+
+| Comando | O que faz |
+|---|---|
+| `npm run dev` | servidor de desenvolvimento com recarregamento automático |
+| `npm run build` | verifica os tipos e gera a versão de produção em `dist/` |
+| `npm run preview` | serve localmente a versão de produção |
+| `npm run lint` | análise estática do código |
+
+### Roteiro de navegação sugerido
+
+1. **Home** — a proposta e os 3 passos do resgate
+2. **Carteira** — saldo, cupons nos três status e histórico de transações
+3. Clique em um cupom → abre a **rota dinâmica** `/cupom/:codigo`
+4. **Resgatar** — escolha operadora e faixa, e gere um cupom novo
+5. **Cupom** — código, QR, contagem regressiva de 24h e impacto de CO₂
+6. **Contato** — envie o formulário vazio para ver as validações
+7. Reduza a janela para **480px** e veja o menu virar hambúrguer
 
 ---
 
 ## 📞 Contato
 
-Dúvidas, suporte ou propostas? Fale com o líder do grupo:
+Dúvidas, suporte ou propostas? Fale com o representante do grupo:
 
+- **Nome:** Artur Esteves — RM569450 — Turma 1TDSPX-2026
 - **E-mail:** Arturbianchini21@gmail.com
-- **Telefone / WhatsApp:** (11) 99551-1888
-- **Issues no GitHub:** https://github.com/EstevesArtur/mobilidade-verde-front/issues
+- **Telefone:** (11) 99551-1888
+- **LinkedIn:** https://www.linkedin.com/in/artur-esteves-31bb4130a/
+- **GitHub:** https://github.com/EstevesArtur
+- **Issues do projeto:** https://github.com/EstevesArtur/mobilidade-verde-front/issues
 
 ---
 
-© 2026 Mobilidade Verde — Turma 1TDSPX-2026 · FIAP · projeto acadêmico.
+<sub>Projeto acadêmico desenvolvido para o Challenge SoulUp 2026 — FIAP · Turma 1TDSPX-2026 · Sprint 3 · Front-End Design Engineering</sub>
