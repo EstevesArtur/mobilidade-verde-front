@@ -25,5 +25,6 @@ export const OPERADORAS: Operadora[] = [
     formato_codigo: "SP-XXXX-XXXX",
     ativo: "S",
     featured: false,
+    descricao: "Responsável pelo transporte por ônibus da cidade de São Paulo, o maior sistema do país em número de passageiros por dia. Entra no MVP como prova de escala do modelo.",
   },
 ];
