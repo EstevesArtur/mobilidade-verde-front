@@ -15,7 +15,7 @@ export function Home() {
         <div className="mx-auto grid w-full max-w-[1140px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <Badge tom="soul">Feature SoulUp · Pontos ECOA</Badge>
-            <h1 className="font-display mt-4 text-4xl leading-[1.15] font-extrabold tracking-[-0.02em] text-soul-900 md:text-5xl lg:text-[3.8rem]">
+            <h1 className="font-display mt-4 text-4xl leading-[1.15] font-extrabold tracking-[-0.02em] text-soul-900 md:text-5xl lg:text-[3.2rem]">
               Seus Pontos ECOA
               <br />
               <span className="text-soul-600">viraram passagem.</span>

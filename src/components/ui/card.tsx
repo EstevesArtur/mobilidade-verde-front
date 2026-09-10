@@ -17,7 +17,7 @@ export function Card({
   return (
     <div
       className={
-        "rounded-grande border border-linha bg-white p-8 " +
+        "rounded-grande border border-linha bg-white p-6 sm:p-8 " +
         (plano ? "shadow-suave " : "shadow-card ") +
         (centralizado ? "text-center " : "") +
         className

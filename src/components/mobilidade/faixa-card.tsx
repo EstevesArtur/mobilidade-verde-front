@@ -30,7 +30,7 @@ export function FaixaCard({
         borda
       }
     >
-      <span className="font-display block text-4xl font-extrabold text-soul-900">
+      <span className="font-display block text-3xl font-extrabold text-soul-900 sm:text-4xl">
         {fmtReais(faixa.valor_centavos)}
       </span>
       <span className="mt-1 block text-sm font-bold text-ecoa-700">

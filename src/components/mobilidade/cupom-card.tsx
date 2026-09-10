@@ -77,7 +77,7 @@ export function CupomCard({ voucher }: CupomCardProps) {
       className="overflow-hidden rounded-grande border border-linha bg-white shadow-alta"
       aria-label={"Cupom " + voucher.operadora.nome}
     >
-      <header className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-br from-transito-700 to-transito-500 p-8 text-white">
+      <header className="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-br from-transito-700 to-transito-500 p-6 text-white sm:p-8">
         <div>
           {voucher.status === "GERADO" && <Badge tom="ok">CUPOM GERADO</Badge>}
           {voucher.status === "UTILIZADO" && (
@@ -94,7 +94,7 @@ export function CupomCard({ voucher }: CupomCardProps) {
         <OperadoraLogo nome={voucher.operadora.nome} tamanho="md" />
       </header>
 
-      <div className="px-8 py-12 text-center">
+      <div className="px-4 py-10 text-center sm:px-8 sm:py-12">
         <p className="font-display text-xs font-extrabold tracking-[0.14em] text-soul-600 uppercase">
           Seu código de cupom
         </p>
