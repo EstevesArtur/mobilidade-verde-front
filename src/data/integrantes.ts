@@ -21,6 +21,7 @@ export const INTEGRANTES: Integrante[] = [
     foto: "/img/integrantes/artur.jpg",
     linkedin: "https://www.linkedin.com/in/artur-esteves-31bb4130a/",
     github: "https://github.com/EstevesArtur",
+    funcao: "Front-End · Representante",
   },
   {
     nome: "João Fontenele",
