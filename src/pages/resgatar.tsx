@@ -1,62 +1,43 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Secao } from "../components/ui/secao";
 import { Botao } from "../components/ui/botao";
 import { Carregando } from "../components/ui/carregando";
+import { ErroApi } from "../components/ui/erro-api";
+import { ListaVazia } from "../components/ui/lista-vazia";
+import { useRequisicao } from "../hooks/use-requisicao";
 import { OperadoraCard } from "../components/mobilidade/operadora-card";
 import { FaixaCard } from "../components/mobilidade/faixa-card";
 import { buscarUsuarioAtual, listarFaixas, listarOperadoras } from "../services/mobilidade-service";
 import { gerarVoucher } from "../services/voucher-service";
 import { fmtPontos, fmtReais } from "../utils/formato";
-import type { Usuario } from "../types/usuario";
 import type { Operadora } from "../types/operadora";
 import type { FaixaCupom } from "../types/faixa-cupom";
 
 export function Resgatar() {
   const navegar = useNavigate();
 
-  const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [operadoras, setOperadoras] = useState<Operadora[]>([]);
-  const [faixas, setFaixas] = useState<FaixaCupom[]>([]);
-  const [carregando, setCarregando] = useState(true);
+  // Carrega usuario, operadoras e faixas em paralelo na API Java;
+  // o hook entrega carregando / erro / dados prontos.
+  const { dados, carregando, erro, recarregar } = useRequisicao(async () => {
+    const [usuario, operadoras, faixas] = await Promise.all([
+      buscarUsuarioAtual(),
+      listarOperadoras(),
+      listarFaixas(),
+    ]);
+    return { usuario, operadoras, faixas };
+  });
 
   // useState 3 de 4: a selecao do usuario nos passos 4 e 5 do fluxo.
   const [operadoraSelecionada, setOperadoraSelecionada] = useState<Operadora | null>(null);
   const [faixaSelecionada, setFaixaSelecionada] = useState<FaixaCupom | null>(null);
   const [gerando, setGerando] = useState(false);
-  const [erro, setErro] = useState("");
-
-  useEffect(() => {
-    let ativo = true;
-
-    async function carregar() {
-      const [dadosUsuario, dadosOperadoras, dadosFaixas] = await Promise.all([
-        buscarUsuarioAtual(),
-        listarOperadoras(),
-        listarFaixas(),
-      ]);
-
-      if (!ativo) {
-        return;
-      }
-
-      setUsuario(dadosUsuario);
-      setOperadoras(dadosOperadoras);
-      setFaixas(dadosFaixas);
-      setCarregando(false);
-    }
-
-    carregar();
-
-    return () => {
-      ativo = false;
-    };
-  }, []);
+  const [erroGeracao, setErroGeracao] = useState("");
 
   function escolherOperadora(operadora: Operadora) {
     setOperadoraSelecionada(operadora);
     setFaixaSelecionada(null);
-    setErro("");
+    setErroGeracao("");
   }
 
   async function confirmar() {
@@ -65,7 +46,7 @@ export function Resgatar() {
     }
 
     setGerando(true);
-    setErro("");
+    setErroGeracao("");
 
     try {
       const voucher = await gerarVoucher(operadoraSelecionada.id_operadora, faixaSelecionada.id_faixa);
@@ -73,18 +54,28 @@ export function Resgatar() {
       // no mesmo padrao do <Link ... state={{ workout }}> da Aula 6.
       navegar("/cupom/" + voucher.codigo, { state: { voucher } });
     } catch (problema) {
-      setErro(problema instanceof Error ? problema.message : "Não foi possível gerar o cupom.");
+      setErroGeracao(problema instanceof Error ? problema.message : "Não foi possível gerar o cupom.");
       setGerando(false);
     }
   }
 
-  if (carregando || !usuario) {
+  if (erro) {
+    return (
+      <Secao>
+        <ErroApi mensagem={erro} onTentarNovamente={recarregar} />
+      </Secao>
+    );
+  }
+
+  if (carregando || !dados) {
     return (
       <Secao>
         <Carregando mensagem="Carregando operadoras e faixas..." />
       </Secao>
     );
   }
+
+  const { usuario, operadoras, faixas } = dados;
 
   return (
     <Secao>
@@ -97,6 +88,7 @@ export function Resgatar() {
 
         <section>
           <h2 className="font-display mt-8 mb-4 text-lg font-bold text-soul-900">1. Escolha a operadora</h2>
+          {operadoras.length === 0 && <ListaVazia mensagem="Nenhuma operadora ativa no momento." />}
           <ul className="grid gap-6 md:grid-cols-2">
             {operadoras.map((operadora) => (
               <li key={operadora.id_operadora}>
@@ -124,8 +116,8 @@ export function Resgatar() {
                   <strong>{fmtPontos(faixaSelecionada.pontos_necessarios)} Pontos ECOA</strong>. Saldo após resgate:{" "}
                   <strong>{fmtPontos(usuario.saldo_pontos - faixaSelecionada.pontos_necessarios)}</strong> pts.
                 </p>
-                {erro && (
-                  <p role="alert" className="mt-4 font-semibold text-erro">{erro}</p>
+                {erroGeracao && (
+                  <p role="alert" className="mt-4 font-semibold text-erro">{erroGeracao}</p>
                 )}
                 <Botao variante="primario" tamanho="lg" className="mt-6" disabled={gerando} onClick={confirmar}>
                   {gerando ? "Gerando cupom..." : "Gerar cupom"}

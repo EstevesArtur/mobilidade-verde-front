@@ -4,9 +4,11 @@ import { Secao } from "../components/ui/secao";
 import { Card } from "../components/ui/card";
 import { Botao } from "../components/ui/botao";
 import { Carregando } from "../components/ui/carregando";
+import { ErroApi } from "../components/ui/erro-api";
 import { CupomCard } from "../components/mobilidade/cupom-card";
 import { ImpactoCo2 } from "../components/mobilidade/impacto-co2";
 import { buscarVoucherPorCodigo } from "../services/voucher-service";
+import { ErroHttp } from "../services/api/cliente-http";
 import { calcularImpacto } from "../utils/co2";
 import type { VoucherDetalhado } from "../types/voucher";
 
@@ -22,6 +24,8 @@ export function Cupom() {
 
   const [voucher, setVoucher] = useState<VoucherDetalhado | null>(null);
   const [carregando, setCarregando] = useState(true);
+  // Erro de rede/API e diferente de "cupom nao existe" (404): sao duas telas
+  const [erro, setErro] = useState<string | null>(null);
 
   useEffect(() => {
     let ativo = true;
@@ -39,14 +43,19 @@ export function Cupom() {
         return;
       }
 
-      const encontrado = await buscarVoucherPorCodigo(codigo);
-
-      if (!ativo) {
-        return;
+      try {
+        const encontrado = await buscarVoucherPorCodigo(codigo);
+        if (!ativo) return;
+        setVoucher(encontrado ?? null);
+      } catch (problema) {
+        if (!ativo) return;
+        // 404 cai no "nao encontrado"; qualquer outro erro mostra a tela de erro
+        if (!(problema instanceof ErroHttp && problema.status === 404)) {
+          setErro(problema instanceof Error ? problema.message : "Erro ao buscar o cupom.");
+        }
+      } finally {
+        if (ativo) setCarregando(false);
       }
-
-      setVoucher(encontrado ?? null);
-      setCarregando(false);
     }
 
     carregar();
@@ -64,6 +73,14 @@ export function Cupom() {
     );
   }
 
+  if (erro) {
+    return (
+      <Secao>
+        <ErroApi mensagem={erro} />
+      </Secao>
+    );
+  }
+
   if (!voucher) {
     return (
       <Secao>
@@ -71,7 +88,7 @@ export function Cupom() {
           <Card centralizado>
             <h1 className="font-display text-2xl font-bold text-soul-900">Cupom não encontrado</h1>
             <p className="mt-3 text-grafite-700">
-              Não localizamos nenhum cupom com o código <strong>{codigo}</strong>. Ele pode ter sido gerado em outra sessão.
+              Não localizamos nenhum cupom com o código <strong>{codigo}</strong>. Confira o código ou gere um novo na carteira.
             </p>
             <Botao variante="primario" className="mt-6" onClick={() => navegar("/carteira")}>
               Voltar para a carteira
