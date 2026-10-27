@@ -4,37 +4,65 @@
 
 Mobilidade Verde é uma feature dentro da **SoulUp** (grupo Prospera), rede social e programa de fidelidade onde o usuário acumula **Pontos ECOA** — moeda digital verde lastreada em créditos de carbono e energia limpa.
 
-A geração de pontos já existe na plataforma e está fora do nosso escopo. O que este projeto entrega é o **caminho de resgate**: transformar Pontos ECOA em cupom de transporte público aceito pelas operadoras parceiras, **TOP** e **SPTrans**.
+A geração de pontos já existe na plataforma e está fora do nosso escopo. O que este projeto entrega é o **caminho de resgate**: transformar Pontos ECOA em cupom de transporte público aceito pelas operadoras parceiras — **TOP**, **SPTrans**, **Metrô SP**, **CPTM** e **EMTU**.
 
 O usuário abre a carteira, vê o saldo, escolhe a operadora e a faixa de valor, e recebe na hora um cupom com código único, QR Code e validade de 24 horas — junto com o cálculo de quanto CO₂ aquela viagem deixa de emitir.
 
-> **Challenge SoulUp 2026 · FIAP · Sprint 3 · Front-End Design Engineering**
+> **Challenge SoulUp 2026 · FIAP · Sprint 4 · Front-End Design Engineering**
 > Turma **1TDSPX-2026** — 1º ano de Análise e Desenvolvimento de Sistemas
 
-**🎥 Vídeo de demonstração:** https://youtu.be/l_q2khj1rLI
-**📦 Repositório:** https://github.com/EstevesArtur/mobilidade-verde-front
+| | |
+|---|---|
+| 🌐 **Aplicação na Vercel** | https://mobilidade-verde-front.vercel.app |
+| 🔌 **API Java (Render)** | https://mobilidade-verde-java-sprint4.onrender.com |
+| 📦 **Repositório do front** | https://github.com/EstevesArtur/mobilidade-verde-front |
+| ☕ **Repositório da API** | https://github.com/EstevesArtur/Mobilidade-Verde-JAVA-Sprint4 |
+| 🎥 **Vídeo (Sprint 4)** | _link do YouTube — preenchido na entrega_ |
+
+### O que mudou na Sprint 4
+
+Na Sprint 3 os dados eram simulados em `src/data/`. Agora **todas as telas da solução consomem a API REST em Java** (Spring Boot + JDBC + Oracle) publicada no Render — sem Axios, só `fetch()` nativo:
+
+| Operação | Método | Endpoint | Onde aparece |
+|---|---|---|---|
+| Listar operadoras | `GET` | `/api/operadoras` | Home, Resgatar |
+| Detalhe da operadora | `GET` | `/api/operadoras/{id}` | `/operadoras/:id` |
+| Listar faixas | `GET` | `/api/faixas` | Resgatar |
+| Usuário e saldo | `GET` | `/api/usuarios/{id}` | Carteira, Resgatar |
+| Cupons do usuário | `GET` | `/api/usuarios/{id}/vouchers` | Carteira |
+| Histórico de pontos | `GET` | `/api/usuarios/{id}/transacoes` | Carteira |
+| Impacto acumulado | `GET` | `/api/usuarios/{id}/impacto` | Carteira |
+| Buscar cupom | `GET` | `/api/vouchers/{codigo}` | `/cupom/:codigo` |
+| **Gerar cupom** | **`POST`** | `/api/vouchers` | Resgatar |
+| **Cancelar cupom (estorno)** | **`POST`** | `/api/vouchers/{codigo}/estornar` | Carteira |
+| **Favoritar operadora** | **`POST`** | `/api/usuarios/{id}/favoritas` | `/operadoras/:id` |
+| **Remover favorita** | **`DELETE`** | `/api/usuarios/{id}/favoritas/{idFav}` | `/operadoras/:id` |
+
+As regras de negócio (saldo insuficiente, limite antifraude de 5 cupons ativos, validade de 24h) ficam no servidor; o front apresenta a mensagem que a API devolve.
+
+> ⏱ A API está no plano gratuito do Render e **hiberna após 15 minutos sem uso**: a primeira requisição pode levar até 1 minuto. A tela mostra o estado de carregamento e, se precisar, o botão "Tentar novamente".
 
 ---
 
 ## 📸 O projeto
 
 ### Home
-![Home do Mobilidade Verde](public/img/screenshots/01-index.png)
+![Home do Mobilidade Verde](docs/sprint4/01-home.png)
 
 ### Carteira — saldo, cupons e histórico
-![Carteira com saldo de Pontos ECOA](public/img/screenshots/02-carteira.png)
+![Carteira com saldo real vindo da API](docs/sprint4/02-carteira.png)
 
 ### Resgate — escolha de operadora e faixa
-![Tela de resgate](public/img/screenshots/03-resgatar.png)
+![Tela de resgate com operadoras e faixas da API](docs/sprint4/03-resgatar.png)
 
 ### Cupom — código, QR e impacto ambiental
-![Cupom gerado com QR Code](public/img/screenshots/04-cupom.png)
+![Cupom gerado pela API e gravado no Oracle](docs/sprint4/04-cupom.png)
+
+### Operadora — favoritar (POST) e remover (DELETE)
+![Detalhe da operadora com favorita](docs/sprint4/05-operadora.png)
 
 ### Integrantes
 ![Página de integrantes](public/img/screenshots/05-integrantes.png)
-
-### Sobre
-![Página sobre o projeto](public/img/screenshots/06-sobre.png)
 
 ### Responsividade — 480px
 ![Layout mobile em 480px](public/img/screenshots/07-mobile.png)
@@ -53,8 +81,10 @@ O usuário abre a carteira, vê o saldo, escolhe a operadora e a faixa de valor,
 | **React Hook Form** | 7.87 | Formulário de contato com validação e tipagem |
 | **Google Fonts** | — | Sora (títulos) e Manrope (corpo) |
 | **API QR Server** | — | Geração do QR Code do cupom, via tag `img` |
+| **Fetch API** | nativa | Consumo da API Java — sem Axios |
+| **Vercel** | — | Deploy do front com rewrite de SPA (`vercel.json`) |
 
-**Hooks utilizados:** `useState`, `useEffect`, `useParams`, `useNavigate`, `useLocation`.
+**Hooks utilizados:** `useState`, `useEffect`, `useCallback`, `useRef`, `useParams`, `useNavigate`, `useLocation`, além do hook próprio `useRequisicao` (carregando / erro / vazio / sucesso).
 
 **Sem bibliotecas de UI e sem cliente HTTP externo.** Nenhum Bootstrap, Material UI ou Axios. Toda a identidade visual é construída com classes Tailwind sobre os tokens da paleta SoulUp.
 
@@ -95,13 +125,20 @@ mobilidade-verde-front/
 │ │ ├── ui/ # Botao, Card, Badge, Secao, CampoErro...
 │ │ └── mobilidade/ # componentes de domínio do resgate
 │ ├── pages/ # uma página por rota
-│ ├── data/ # conteúdo e dados simulados
-│ ├── types/ # interfaces espelhando o modelo do banco
-│ ├── services/ # acesso aos dados (vira API na Sprint 4)
+│ ├── data/ # conteúdo estático (FAQ, passos, integrantes)
+│ ├── hooks/ # useRequisicao: estados de tela da API
+│ ├── types/ # interfaces do front (espelho do DDL) + api.ts (contratos da API)
+│ ├── services/ # camada de integração com a API Java
+│ │ ├── api/ # cliente-http.ts (único fetch) + adaptadores.ts
+│ │ ├── mobilidade-service.ts
+│ │ ├── voucher-service.ts
+│ │ └── favorita-service.ts
 │ ├── utils/ # formatação e cálculo de CO₂
 │ ├── App.tsx # declaração de todas as rotas
 │ ├── main.tsx # ponto de entrada
 │ └── index.css # ÚNICO arquivo CSS: entrypoint do Tailwind
+├── .env.example # VITE_API_URL
+├── vercel.json # rewrite de SPA
 ├── index.html
 ├── package.json
 ├── tsconfig.json
@@ -135,14 +172,13 @@ type Modal = "ONIBUS" | "METRO" | "TREM" | "MISTO" | "BRT";
 
 Campos sensíveis do banco — `hash_senha`, `cpf_hash`, `hash_validacao` e `ip_origem` — **não são expostos no front-end** por decisão de segurança.
 
-### Cálculo de impacto ambiental
+### Camada de integração
 
-O CO₂ evitado é a diferença entre o que o carro emitiria e o que o ônibus emite:
+Um único arquivo chama `fetch()`: `src/services/api/cliente-http.ts`. Ele lê a URL base de `VITE_API_URL`, converte erros da API (`{status, erro, mensagem}`) em `ErroHttp` e devolve JSON tipado. Os `adaptadores.ts` traduzem o `camelCase` da API para o `snake_case` dos tipos do front — por isso nenhuma tela precisou ser reescrita entre a Sprint 3 e a 4.
 
-CO₂ evitado = km × (0,180 do carro − 0,082 do ônibus)
+### Impacto ambiental
 
-
-Fontes: **0,180 kg/km** para automóvel (MMA) e **0,082 kg/km** para ônibus urbano (ANTP). A equivalência em árvores usa a absorção média de **21,77 kg de CO₂ por ano**.
+O impacto acumulado da carteira vem da API (`/api/usuarios/{id}/impacto`, calculado a partir de `T_VIAGEM`). A estimativa por cupom segue a fórmula local: CO₂ evitado = km × (0,180 do carro − fator da operadora), com fontes MMA e ANTP.
 
 ---
 
@@ -206,8 +242,12 @@ Equipe **FOG** · Turma **1TDSPX-2026** · FIAP · 1º ano de Análise e Desenvo
 
 ## 🚀 Como usar
 
-**Repositório:** https://github.com/EstevesArtur/mobilidade-verde-front
-**Vídeo de demonstração no YouTube:** https://youtu.be/l_q2khj1rLI
+| | |
+|---|---|
+| **Aplicação (Vercel)** | https://mobilidade-verde-front.vercel.app |
+| **API Java (Render)** | https://mobilidade-verde-java-sprint4.onrender.com |
+| **Repositório GitHub** | https://github.com/EstevesArtur/mobilidade-verde-front |
+| **Vídeo no YouTube** | _link — preenchido na entrega_ |
 
 ### Pré-requisitos
 
@@ -220,10 +260,11 @@ Equipe **FOG** · Turma **1TDSPX-2026** · FIAP · 1º ano de Análise e Desenvo
 git clone https://github.com/EstevesArtur/mobilidade-verde-front.git
 cd mobilidade-verde-front
 npm install
+cp .env.example .env    # aponta para a API no Render
 npm run dev
 ```
 
-Acesse **http://localhost:5173**.
+Acesse **http://localhost:5173**. Para apontar para uma API local, altere `VITE_API_URL` no `.env`.
 
 ### Scripts disponíveis
 
@@ -236,13 +277,15 @@ Acesse **http://localhost:5173**.
 
 ### Roteiro de navegação sugerido
 
-1. **Home** — a proposta e os 3 passos do resgate
-2. **Carteira** — saldo, cupons nos três status e histórico de transações
-3. Clique em um cupom → abre a **rota dinâmica** `/cupom/:codigo`
-4. **Resgatar** — escolha operadora e faixa, e gere um cupom novo
-5. **Cupom** — código, QR, contagem regressiva de 24h e impacto de CO₂
-6. **Contato** — envie o formulário vazio para ver as validações
-7. Reduza a janela para **480px** e veja o menu virar hambúrguer
+1. **Home** — operadoras parceiras vindas da API (`GET /api/operadoras`)
+2. **Carteira** — saldo real do Oracle, impacto acumulado, cupons e histórico
+3. **Resgatar** — escolha operadora e faixa → **`POST /api/vouchers`** grava o cupom no banco e debita os pontos
+4. **Cupom** — código, QR, validade e impacto (rota dinâmica `/cupom/:codigo`, `GET` na API)
+5. Volte à **Carteira** → o cupom novo está lá → **Cancelar** (`POST .../estornar`) devolve os pontos
+6. Clique numa operadora na Home → **Favoritar** (`POST`) e **Remover** (`DELETE`)
+7. Acesse `/cupom/XXX-0000-0000` → tela de "não encontrado" (404 tratado)
+8. **Contato** — envie o formulário vazio para ver as validações do React Hook Form
+9. Reduza a janela para **480px** e veja o menu virar hambúrguer
 
 ---
 
