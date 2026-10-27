@@ -5,10 +5,16 @@ import { BotaoLink } from "../components/ui/botao-link";
 import { TituloSecao } from "../components/ui/titulo-secao";
 import { PassoItem } from "../components/mobilidade/passo-item";
 import { OperadoraLogo } from "../components/mobilidade/operadora-logo";
-import { OPERADORAS } from "../data/operadoras";
+import { Link } from "react-router-dom";
 import { PASSOS } from "../data/passos";
+import { useRequisicao } from "../hooks/use-requisicao";
+import { listarOperadoras } from "../services/mobilidade-service";
 
 export function Home() {
+  // Operadoras parceiras vem da API Java (Sprint 4): a vitrine
+  // acompanha o catalogo real do banco, sem lista escrita a mao.
+  const { dados: operadoras } = useRequisicao(listarOperadoras);
+
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-areia to-[#EAF4ED] py-12 md:py-24">
@@ -21,7 +27,7 @@ export function Home() {
               <span className="text-soul-600">viraram passagem.</span>
             </h1>
             <p className="mt-4 mb-8 max-w-[52ch] text-lg text-grafite-700">
-              Trocamos seus pontos por cupom real de transporte público, aceito direto pela <strong>TOP</strong> e <strong>SPTrans</strong>. Sem burocracia, com impacto ambiental medido.
+              Trocamos seus pontos por cupom real de transporte público, aceito pela <strong>TOP</strong>, <strong>SPTrans</strong>, <strong>Metrô</strong>, <strong>CPTM</strong> e <strong>EMTU</strong>. Sem burocracia, com impacto ambiental medido.
             </p>
             <div className="flex flex-wrap gap-3">
               <BotaoLink para="/carteira" variante="primario" tamanho="lg">Ver minha carteira</BotaoLink>
@@ -55,11 +61,13 @@ export function Home() {
         <Card centralizado>
           <p className="font-display text-xs font-extrabold tracking-[0.14em] text-soul-600 uppercase">Operadoras parceiras no MVP</p>
           <h2 className="font-display mt-2 mb-8 text-3xl font-bold text-soul-900 md:text-4xl">Aceito onde você anda</h2>
-          <ul className="mx-auto grid max-w-[560px] grid-cols-2 gap-6">
-            {OPERADORAS.map((operadora) => (
+          <ul className="mx-auto grid max-w-[720px] grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+            {(operadoras ?? []).map((operadora) => (
               <li key={operadora.id_operadora}>
-                <OperadoraLogo nome={operadora.nome} tamanho="lg" className="mx-auto" />
-                <p className="mt-2 font-bold">{operadora.nome}</p>
+                <Link to={"/operadoras/" + operadora.id_operadora} className="block rounded-grande transition hover:-translate-y-1">
+                  <OperadoraLogo nome={operadora.nome} tamanho="lg" className="mx-auto" />
+                  <p className="mt-2 font-bold">{operadora.nome}</p>
+                </Link>
               </li>
             ))}
           </ul>
