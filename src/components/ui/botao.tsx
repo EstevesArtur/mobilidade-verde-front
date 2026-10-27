@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 export type VarianteBotao = "primario" | "transito" | "fantasma";
-export type TamanhoBotao = "md" | "lg";
+export type TamanhoBotao = "sm" | "md" | "lg";
 
 // Traducao literal do .btn do components.css da Sprint 1+2.
 // cursor-pointer e obrigatorio: o Preflight do Tailwind v4 usa cursor default.
@@ -17,6 +17,7 @@ const VARIANTES: Record<VarianteBotao, string> = {
 };
 
 const TAMANHOS: Record<TamanhoBotao, string> = {
+  sm: "px-3 py-1.5 text-xs",
   md: "px-6 py-3 text-sm",
   lg: "px-12 py-4 text-base",
 };
