@@ -17,7 +17,7 @@ O usuário abre a carteira, vê o saldo, escolhe a operadora e a faixa de valor,
 | 🔌 **API Java (Render)** | https://mobilidade-verde-java-sprint4.onrender.com |
 | 📦 **Repositório do front** | https://github.com/EstevesArtur/mobilidade-verde-front |
 | ☕ **Repositório da API** | https://github.com/EstevesArtur/Mobilidade-Verde-JAVA-Sprint4 |
-| 🎥 **Vídeo (Sprint 4)** | _link do YouTube — preenchido na entrega_ |
+| 🎥 **Vídeo (Sprint 4)** | https://www.youtube.com/watch?v=_kxmaTUQcZU |
 
 ### O que mudou na Sprint 4
 
@@ -247,7 +247,7 @@ Equipe **FOG** · Turma **1TDSPX-2026** · FIAP · 1º ano de Análise e Desenvo
 | **Aplicação (Vercel)** | https://mobilidade-verde-front.vercel.app |
 | **API Java (Render)** | https://mobilidade-verde-java-sprint4.onrender.com |
 | **Repositório GitHub** | https://github.com/EstevesArtur/mobilidade-verde-front |
-| **Vídeo no YouTube** | _link — preenchido na entrega_ |
+| **Vídeo no YouTube** | https://www.youtube.com/watch?v=_kxmaTUQcZU |
 
 ### Pré-requisitos
 
